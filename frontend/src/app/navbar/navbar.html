@@ -1,0 +1,17 @@
+<ul class="topnav">
+  
+  <li><a routerLink="">Home</a></li>
+  <li><a routerLink="/shop">Shop</a></li>
+  <li><a routerLink="/about">About</a></li>
+
+  @if(!userLoggedIn) {
+    <li class="right"><a routerLink="/login">Login</a></li>
+    <li class="right"><a routerLink="/registration">Register</a></li>
+  }
+
+  @if(userLoggedIn) {
+    <li class="right"><a routerLink="/logout">Log out</a></li>
+    <li class="right"><a routerLink="/account">My Account</a></li>
+  }
+
+</ul>

@@ -1,0 +1,80 @@
+@Address = https://localhost:7000
+
+###
+
+GET {{Address}}/api/users
+Accept: application/json
+
+###
+
+GET {{Address}}/api/test
+Accept: application/json
+
+###
+
+GET {{Address}}/api/protected
+Accept: application/json
+
+###
+
+GET {{Address}}/api/users/2
+Accept: application/json
+
+###
+
+GET {{Address}}/api/users/logout
+Accept: application/json
+
+###
+
+POST {{Address}}/api/users/registration
+Accept: application/json
+Content-Type: application/json
+
+{
+    "Firstname": "John",
+    "Lastname": "Doe",
+    "Email": "john@gmail.com",
+    "Password": "john123",
+    "Role": "User"
+}
+
+### 
+
+DELETE {{Address}}/api/users/delete/4
+Accept: application/json
+
+###
+
+PUT {{Address}}/api/users/update/2
+Accept: application/json
+Content-Type: application/json
+
+{
+    "Firstname": "John",
+    "Lastname": "Doe",
+    "Email": "john@gmail.com",
+    "Password": "john123"
+}
+
+###
+
+POST {{Address}}/api/users/login?email=john@gmail.com&password=john123
+Accept: application/json
+Content-Type: application/json
+
+{
+}
+
+###
+
+POST {{Address}}/api/users/login?email=veljko@gmail.com&password=veljko123
+Accept: application/json
+Content-Type: application/json
+
+{
+}
+
+### 
+GET {{Address}}/api/users/status
+Accept: application/json

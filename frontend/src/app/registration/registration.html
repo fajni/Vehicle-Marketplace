@@ -1,0 +1,59 @@
+<h1>Please create your account:</h1>
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+    <div class="container">
+        
+        @if(successfulRegistration == true) {
+            <h1 style="color: green; text-align: center;">SUCCESSFULLY REGISTERED! - {{message}} </h1>
+        }
+        @if(successfulRegistration == false) {
+            <h1 style="color: red; text-align: center;">REGISTRATION FAILED! </h1>
+        }
+
+        <label for="firstname"><b>Firstname</b></label>
+        <input type="text" placeholder="Enter Firstname" name="firstname" required formControlName="firstname" />
+
+        <label for="lastname"><b>Lastname</b></label>
+        <input type="text" placeholder="Enter Lastname" name="lastname" required formControlName="lastname" />
+        
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required formControlName="email" />
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required formControlName="password" />
+
+        <label for="role"><b>Choose role</b></label>
+        <select id="role" formControlName="role">
+            @for(role of roles; track role.value) {
+                <option value="{{role.value}}">{{role.label}}</option>
+            }
+        </select>
+
+        @if(invalidEmail){
+            <p style="color: red;">Invalid Email!</p>
+        }
+
+        @if(invalidPassword){
+            <p style="color: red;">Invalid Password!</p>
+        }
+
+        @if(nullValues) {
+            <p style="color: red;">Null Values!</p>
+        }
+
+        <button type="submit">REGISTER</button>
+        <label>
+            <input type="checkbox" checked="checked" name="remember" /> Remember me (Not implemented!)
+        </label>
+        <br/><br/>
+        <p>Already have an account? <a routerLink="/login">Login here.</a> </p>
+
+    </div>
+
+    <div class="container">
+        <button type="button" class="cancelbtn" routerLink="">Cancel</button>
+        <span class="psw">Forgot <a href="#">password? (Not implemented!)</a></span>
+    </div>
+
+</form>

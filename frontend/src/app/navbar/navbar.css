@@ -1,0 +1,39 @@
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #684701;
+
+  /* Set navbar fixed */
+  position: static;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+ul.topnav li {float: left;}
+
+img {
+  height: 1em;
+  vertical-align: middle;
+  object-fit: cover;
+
+}
+
+ul.topnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.topnav li a:hover {background-color: #111;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px) {
+  ul.topnav li.right, 
+  ul.topnav li {float: none;}
+}

@@ -1,0 +1,10 @@
+<app-navbar/>
+
+@if(backendResponse){
+    <router-outlet />
+}
+@else {
+    <h1 style="font-size: xx-large; color: red; text-align: center;">
+        NO RESPONSE FROM BACKEND!
+    </h1>
+}
