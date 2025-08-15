@@ -48,6 +48,7 @@ namespace Posts.Dao
             existingUser.Lastname = updatedUser.Lastname;
             existingUser.Email = updatedUser.Email;
             existingUser.Password = updatedUser.Password;
+            existingUser.Role = updatedUser.Role;
 
             await context.SaveChangesAsync();
         }

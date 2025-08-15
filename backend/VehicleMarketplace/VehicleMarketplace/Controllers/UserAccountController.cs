@@ -137,6 +137,8 @@ namespace Posts.Controllers
             {
                 new Claim("Email", user.Email),
                 new Claim("Password", user.Password),
+                new Claim("Firstname", user.Firstname),
+                new Claim("Lastname", user.Lastname),
                 new Claim(ClaimTypes.Role, user.Role),
                 new Claim(ClaimTypes.Name, user.Email)
             };
@@ -157,7 +159,8 @@ namespace Posts.Controllers
                 message = $"Successfully logged in!",
                 cookie = HttpContext.Response.Headers["Set-Cookie"],
                 cookieValue = cookieValue,
-                role = role
+                role = role,
+                user=user
             });
         }
 
@@ -177,14 +180,21 @@ namespace Posts.Controllers
             }
         }
 
+
         [HttpGet, Route("status")]
         //[Authorize]
         public IActionResult Status()
         {
             if(User.Identity.IsAuthenticated)
             {
-                return Ok(new { loggedIn = true, userEmail = User.Identity.Name, message = "You're logged in!" });
-                }
+                return Ok(new { 
+                    loggedIn = true,
+                    message = "You're logged in!",
+                    userEmail = User.Identity.Name, 
+                    Firstname = User.FindFirst("Firstname")?.Value,
+                    Lastname = User.FindFirst("Lastname")?.Value
+                });
+            }
             else
             {
                 //return StatusCode(StatusCodes.Status401Unauthorized, new { message = "You're not logged in!" });

@@ -3,7 +3,7 @@
 - [Database connection](#database-connection)
 - [Migrations](#migrations)
     - [Problems](#problems)
-- [Cookie settings](#cookie-settings)
+- [Cookie and Cors settings](#cookie-and-cors-settings)
 - [Endpoints](#endpoints)
 
 <hr/>
@@ -80,7 +80,7 @@ Check packages/dependencies:
 </Project>
 ```
 
-## Cookie settings
+## Cookie and CORS settings
 
 - Program.cs
 

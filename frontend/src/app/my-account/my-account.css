@@ -1,0 +1,73 @@
+img {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  background-color: rgba(255, 255, 255, 0.274);
+  max-width: 200px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  background-color: #684701;
+  color: white;
+  padding: 0.5rem;
+}
+
+.message {
+  text-align: center;
+  color: white;
+}
+
+input, select {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: large;
+  font-weight: 700;
+}
+
+h1 {
+    font-size: x-large;
+}
+
+p, h1 {
+    padding-bottom: 15px;
+}
+
+.title {
+  color: rgb(167, 165, 165);
+  font-size: 20px;
+}
+
+button {
+  border: none;
+  outline: 1px solid black;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.edit {
+  background-color: orange;
+}
+
+.delete {
+  background-color: red;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}

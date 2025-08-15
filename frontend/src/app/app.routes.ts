@@ -4,7 +4,7 @@ import { Registration } from './registration/registration';
 import { Home } from './home/home';
 import { Shop } from './shop/shop';
 import { About } from './about/about';
-import { ProtectedPage } from './protected-page/protected-page';
+import { MyAccount } from './my-account/my-account';
 
 export const routes: Routes = [
     {
@@ -28,22 +28,12 @@ export const routes: Routes = [
         path: 'login',
         component: Login
     },
-    // {
-    //     path: 'logout',
-
-    // },
     {
         path: 'registration',
         component: Registration
     },
     {
-        path: 'protected',
-        component: ProtectedPage
+        path: 'account',
+        component: MyAccount
     }
-    // {
-    //     path: 'logout'
-    // },
-    // {
-    //     path: 'account'
-    // }
 ];

@@ -46,7 +46,7 @@ Accept: application/json
 
 ###
 
-PUT {{Address}}/api/users/update/2
+PUT {{Address}}/api/users/update/1
 Accept: application/json
 Content-Type: application/json
 
@@ -54,7 +54,8 @@ Content-Type: application/json
     "Firstname": "John",
     "Lastname": "Doe",
     "Email": "john@gmail.com",
-    "Password": "john123"
+    "Password": "john123",
+    "Role": "User"
 }
 
 ###

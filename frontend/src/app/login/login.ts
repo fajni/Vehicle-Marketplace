@@ -3,10 +3,11 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { UserAccount } from '../models/UserAccount';
 import { LoginService } from './login.service';
+import { PopupMessage } from "../popup-message/popup-message";
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, PopupMessage],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
@@ -32,11 +33,10 @@ export class Login implements OnInit {
   private destroyRef = inject(DestroyRef);
   private router = inject(Router);
 
-  public userAccounts = signal<UserAccount[]>([]); // delete and implemented in different way
-
   public nullValues: boolean = false;
   public successfulLogin: boolean | undefined;
   public loginMessage: string = "";
+  public alreadyLogin: boolean = false;
 
   public loginForm = new FormGroup({
     email: new FormControl('', { validators: [ Validators.email, Validators.required ] }),
@@ -49,14 +49,12 @@ export class Login implements OnInit {
 
     if(this.loginForm.valid) {
 
-      console.log('Email: ' + this.loginForm.value.email);
-      console.log('Password: ' + this.loginForm.value.password);
-
       const { email, password } = this.loginForm.value;
 
       const subscription = this.loginService.login(email!, password!).subscribe({
         next: (response) => { 
-          //console.log('Login successful! ');
+          console.log('Login successful! ');
+          console.log(response);
           this.successfulLogin = true;
 
           var cookie: string = response.cookie.toString();
@@ -87,16 +85,23 @@ export class Login implements OnInit {
   public ngOnInit(): void {
 
     const subscription = this.loginService.getUsers().subscribe({
-      next: (users) => { 
-        this.userAccounts.set(users)
+      next: (users) => {
 
-        for(var user of this.userAccounts() as UserAccount[]) {
+        for(var user of users as UserAccount[]) {
           console.table(user);
         }
 
       },
       error: (error: Error) => { console.log(error) },
       complete: () => { console.log('Data fetched!') }
+    });
+
+    const subscription2 = this.loginService.testAuthorization().subscribe({
+      next: (response) => {
+        if(response.loggedIn == true) {
+          this.alreadyLogin = true;
+        }
+      },
     });
 
     this.destroyRef.onDestroy(() => {
@@ -106,7 +111,7 @@ export class Login implements OnInit {
   }
 
 
-  public testAuthorization() {
+  public testAuthorizationButton() {
     
     const subscription = this.loginService.testAuthorization().subscribe({
       next: (response) => { console.log(response); },

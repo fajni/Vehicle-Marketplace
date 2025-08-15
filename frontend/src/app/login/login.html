@@ -1,60 +1,70 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-    @if(successfulLogin == true) {
-        <h1 style="color: green;">LOGIN SUCCESSFUL!</h1>
-    }
-    @if(successfulLogin == false) {
-        <h1 style="color: red;">LOGIN FAILED!</h1>
-        <p style="color: red; text-align: center;">{{loginMessage}}</p>
-    }
+@if(alreadyLogin == true) {
+    <app-popup-message [message]="'You\'re already logged in'" [title]="'Already logged in'" [showHtml]="true"/>
+}
 
-    <div class="imgcontainer">
-        <img src="assets/img/img_avatar.png" alt="Avatar" class="avatar">
-    </div>
+@else {
 
-    <div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required formControlName="email" />
-
-        <label for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required formControlName="password" />
-        
-        @if(invalidEmail) {
-            <p style="color: red;">Invalid Email!</p>
+        @if(successfulLogin == true) {
+            <h1 style="color: green;">LOGIN SUCCESSFUL!</h1>
+        }
+        @if(successfulLogin == false) {
+            <h1 style="color: red;">LOGIN FAILED!</h1>
+            <p style="color: red; text-align: center;">{{loginMessage}}</p>
         }
 
-        @if(invalidPassword) {
-            <p style="color: red;">Invalid Password!</p>
-        }
-
-        @if(nullValues) {
-            <p style="color: red;">Null Values!</p>
-        }
-
-        <button type="submit">LOGIN</button>
-        <label>
-            <input type="checkbox" checked="checked" name="remember" /> Remember me (Not implemented!)
-        </label>
-        <br/><br/>
-        <p>Don't have an account? <a routerLink="/registration">Register here.</a> </p>
-
-        <div class="container">
-            <button type="button" class="cancelbtn" routerLink="">Cancel</button>
-            <span class="psw">Forgot <a href="#">password? (Not implemented!)</a></span>
+        <div class="imgcontainer">
+            <img src="assets/img/img_avatar.png" alt="Avatar" class="avatar">
         </div>
 
-    </div>
+        <div class="container">
 
-</form>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required formControlName="email" />
 
-<button (click)="testAuthorization()"> Test Authorization </button>
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required formControlName="password" />
+            
+            @if(invalidEmail) {
+                <p style="color: red;">Invalid Email!</p>
+            }
 
-<!-- <div class="container">
+            @if(invalidPassword) {
+                <p style="color: red;">Invalid Password!</p>
+            }
 
-    @for(user of this.userAccounts(); track user.id){
-        <p>Email: {{user.email}}</p>
-        <p>ID: {{user.id}}</p>
-        <hr/>
-    }
-</div> -->
+            @if(nullValues) {
+                <p style="color: red;">Null Values!</p>
+            }
+
+            <button type="submit">LOGIN</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember" /> Remember me (Not implemented!)
+            </label>
+            <br/><br/>
+            <p>Don't have an account? <a routerLink="/registration">Register here.</a> </p>
+
+            <div class="container">
+                <button type="button" class="cancelbtn" routerLink="">Cancel</button>
+                <span class="psw">Forgot <a href="#">password? (Not implemented!)</a></span>
+            </div>
+
+        </div>
+
+        <!-- <div class="container">
+            <button type="button" (click)="testAuthorizationButton()"> Test Authorization </button>
+        </div> -->
+
+    </form>
+
+    <!-- <div class="container">
+
+        @for(user of this.userAccounts(); track user.id){
+            <p>Email: {{user.email}}</p>
+            <p>ID: {{user.id}}</p>
+            <hr/>
+        }
+    </div> -->
+}

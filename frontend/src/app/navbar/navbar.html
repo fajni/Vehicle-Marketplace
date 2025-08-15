@@ -10,7 +10,7 @@
   }
 
   @if(userLoggedIn) {
-    <li class="right"><a routerLink="/logout">Log out</a></li>
+    <li class="right"><a (click)="logout()" href="">Log out</a></li>
     <li class="right"><a routerLink="/account">My Account</a></li>
   }
 

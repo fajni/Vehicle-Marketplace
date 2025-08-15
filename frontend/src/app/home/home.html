@@ -1,15 +1,5 @@
 <br/>
 
-<p style="text-align: center;">TODO: MAKE THIS TEXT AS POPUP!</p>
-@if(showWelcomeBackText == true) {
-    <h2 style="text-align: center; color: white;">WELCOME BACK!</h2>
-    <p style="text-align: center; color: white;">{{user}}</p>
-}
-@if(showWelcomeBackText == false) {
-    <h2 style="text-align: center; color: white;">You're not logged in!</h2>
-    <p style="text-align: center; color: white;"><a routerLink="login">Please log in.</a></p>
-}
-
 <!-- Header -->
 <header class="w3-display-container w3-content w3-center" style="max-width:1500px">
     <img class="w3-image" src="/assets/img/challenger.jpg" alt="Me" width="1500" height="600">
@@ -76,3 +66,10 @@
     </div>
 
 </div>
+
+@if(showWelcomeBackText == true) {
+    <app-popup-message [message]="user!" [title]="'WELCOME BACK!'" [showHtml]="false"/>
+}
+@if(showWelcomeBackText == false) {
+    <app-popup-message [message]="'Please log in'" [title]="'YOU\'RE NOT LOGGED IN!'" [showHtml]="false"/>
+}
