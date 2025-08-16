@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Posts.Models;
-using Posts.Services;
+using VehicleMarketplace.Models;
+using VehicleMarketplace.Services;
 using System.Security.Claims;
 
-namespace Posts.Controllers
+namespace VehicleMarketplace.Controllers
 {
     [ApiController]
     [Route("api/users")]
@@ -19,6 +19,7 @@ namespace Posts.Controllers
         {
             this.userAccountService = userAccountService;
         }
+
 
         // get all users
         [HttpGet, Route("")]
@@ -75,7 +76,7 @@ namespace Posts.Controllers
         {
             try
             {
-                await userAccountService.DeleteUserAccount(userAccountId);
+                await userAccountService.DeleteUserAccountById(userAccountId);
 
                 return Ok(new { message = $"Successfully deleted user with {userAccountId} id!" });
             }

@@ -1,6 +1,290 @@
 [
   {
-    "ContainingType": "Posts.Controllers.TestController",
+    "ContainingType": "VehicleMarketplace.Controllers.CarController",
+    "Method": "GetAllCars",
+    "RelativePath": "api/cars",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.CarController",
+    "Method": "GetCar",
+    "RelativePath": "api/cars/{carVin}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carVin",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.CarController",
+    "Method": "AddCar",
+    "RelativePath": "api/cars/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "car",
+        "Type": "VehicleMarketplace.Models.Car",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.CarController",
+    "Method": "DeleteCar",
+    "RelativePath": "api/cars/delete/{carVin}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carVin",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.CarController",
+    "Method": "UpdateCar",
+    "RelativePath": "api/cars/update/{carVin}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "carVin",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedCar",
+        "Type": "VehicleMarketplace.Models.Car",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MakeController",
+    "Method": "GetAllMakes",
+    "RelativePath": "api/makes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MakeController",
+    "Method": "GetMake",
+    "RelativePath": "api/makes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MakeController",
+    "Method": "AddMake",
+    "RelativePath": "api/makes/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "make",
+        "Type": "VehicleMarketplace.Models.Make",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MakeController",
+    "Method": "DeleteMake",
+    "RelativePath": "api/makes/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MakeController",
+    "Method": "UpdateMake",
+    "RelativePath": "api/makes/update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedMake",
+        "Type": "VehicleMarketplace.Models.Make",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
+    "Method": "GetAllMotorcycles",
+    "RelativePath": "api/motorcycles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
+    "Method": "GetMotorcycle",
+    "RelativePath": "api/motorcycles/{vin}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vin",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
+    "Method": "AddMotorcycle",
+    "RelativePath": "api/motorcycles/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "motorcycle",
+        "Type": "VehicleMarketplace.Models.Motorcycle",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
+    "Method": "UpdateMotorcycle",
+    "RelativePath": "api/motorcycles/update/{vin}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vin",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedMotorcycle",
+        "Type": "VehicleMarketplace.Models.Motorcycle",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
+    "Method": "GetAllMotorcycles",
+    "RelativePath": "api/motors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
+    "Method": "GetMotorcycle",
+    "RelativePath": "api/motors/{vin}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vin",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
+    "Method": "AddMotorcycle",
+    "RelativePath": "api/motors/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "motorcycle",
+        "Type": "VehicleMarketplace.Models.Motorcycle",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
+    "Method": "UpdateMotorcycle",
+    "RelativePath": "api/motors/update/{vin}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vin",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedMotorcycle",
+        "Type": "VehicleMarketplace.Models.Motorcycle",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.TestController",
     "Method": "GetTest",
     "RelativePath": "api/protected",
     "HttpMethod": "GET",
@@ -9,7 +293,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Posts.Controllers.TestUser, VehicleMarketplace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[VehicleMarketplace.Controllers.TestUser, VehicleMarketplace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -20,7 +304,7 @@
     ]
   },
   {
-    "ContainingType": "Posts.Controllers.TestController",
+    "ContainingType": "VehicleMarketplace.Controllers.TestController",
     "Method": "GetTest",
     "RelativePath": "api/test",
     "HttpMethod": "GET",
@@ -29,7 +313,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Posts.Controllers.TestUser, VehicleMarketplace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[VehicleMarketplace.Controllers.TestUser, VehicleMarketplace, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -40,7 +324,7 @@
     ]
   },
   {
-    "ContainingType": "Posts.Controllers.UserAccountController",
+    "ContainingType": "VehicleMarketplace.Controllers.UserAccountController",
     "Method": "GetAllUserAccounts",
     "RelativePath": "api/users",
     "HttpMethod": "GET",
@@ -50,7 +334,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Posts.Controllers.UserAccountController",
+    "ContainingType": "VehicleMarketplace.Controllers.UserAccountController",
     "Method": "GetUserAccount",
     "RelativePath": "api/users/{userAccountId}",
     "HttpMethod": "GET",
@@ -66,7 +350,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Posts.Controllers.UserAccountController",
+    "ContainingType": "VehicleMarketplace.Controllers.UserAccountController",
     "Method": "DeleteUserAccount",
     "RelativePath": "api/users/delete/{userAccountId}",
     "HttpMethod": "DELETE",
@@ -82,7 +366,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Posts.Controllers.UserAccountController",
+    "ContainingType": "VehicleMarketplace.Controllers.UserAccountController",
     "Method": "Login",
     "RelativePath": "api/users/login",
     "HttpMethod": "POST",
@@ -103,7 +387,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Posts.Controllers.UserAccountController",
+    "ContainingType": "VehicleMarketplace.Controllers.UserAccountController",
     "Method": "Logout",
     "RelativePath": "api/users/logout",
     "HttpMethod": "GET",
@@ -113,7 +397,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Posts.Controllers.UserAccountController",
+    "ContainingType": "VehicleMarketplace.Controllers.UserAccountController",
     "Method": "AddUserAccount",
     "RelativePath": "api/users/registration",
     "HttpMethod": "POST",
@@ -122,14 +406,14 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "Posts.Models.UserAccount",
+        "Type": "VehicleMarketplace.Models.UserAccount",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Posts.Controllers.UserAccountController",
+    "ContainingType": "VehicleMarketplace.Controllers.UserAccountController",
     "Method": "Status",
     "RelativePath": "api/users/status",
     "HttpMethod": "GET",
@@ -139,7 +423,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Posts.Controllers.UserAccountController",
+    "ContainingType": "VehicleMarketplace.Controllers.UserAccountController",
     "Method": "UpdateUserAccount",
     "RelativePath": "api/users/update/{userAccountId}",
     "HttpMethod": "PUT",
@@ -153,7 +437,23 @@
       },
       {
         "Name": "updatedUser",
-        "Type": "Posts.Models.UserAccount",
+        "Type": "VehicleMarketplace.Models.UserAccount",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
+    "Method": "DeleteMotorcycle",
+    "RelativePath": "delete/{vin}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vin",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

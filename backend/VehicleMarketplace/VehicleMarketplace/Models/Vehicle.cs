@@ -7,7 +7,7 @@ namespace VehicleMarketplace.Models
     [NotMapped]
     public class Vehicle
     {
-        public int Vin { get; set; }
+        public string Vin { get; set; }
 
         public string Name { get; set; }
 

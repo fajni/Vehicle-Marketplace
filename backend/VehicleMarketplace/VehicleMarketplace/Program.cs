@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using Posts.Dao;
-using Posts.Data;
-using Posts.Services;
+using VehicleMarketplace.Dao;
+using VehicleMarketplace.Data;
+using VehicleMarketplace.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +13,16 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddScoped<UserAccountService>();
 builder.Services.AddScoped<UserAccountDAO>();
+builder.Services.AddScoped<CarService>();
+builder.Services.AddScoped<CarDAO>();
+builder.Services.AddScoped<MotorcycleService>();
+builder.Services.AddScoped<MotorcycleDAO>();
+builder.Services.AddScoped<MakeService>();
+builder.Services.AddScoped<MakeDAO>();
 
 // builder.Services.AddSingleton<UserAccountService>();
 
-builder.Services.AddDbContext<PostsDbContext>(options => {
+builder.Services.AddDbContext<VehicleMarketplaceDbContext>(options => {
         options.UseMySQL(builder.Configuration.GetConnectionString("MyDefaultTutorialConnectionString"));
     }
 );

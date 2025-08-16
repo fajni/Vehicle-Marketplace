@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Posts.Data;
-using Posts.Models;
+using VehicleMarketplace.Data;
+using VehicleMarketplace.Models;
 
-namespace Posts.Dao
+namespace VehicleMarketplace.Dao
 {
     public class UserAccountDAO
     {
-        private readonly PostsDbContext context;
+        private readonly VehicleMarketplaceDbContext context;
 
-        public UserAccountDAO(PostsDbContext context)
+        public UserAccountDAO(VehicleMarketplaceDbContext context)
         {
             this.context = context;
         }
@@ -34,7 +34,7 @@ namespace Posts.Dao
             await context.SaveChangesAsync();
         }
 
-        public async Task DeleteUserByIdAsync(UserAccount user)
+        public async Task DeleteUserAccountAsync(UserAccount user)
         {
             context.UserAccounts.Remove(user);
             await context.SaveChangesAsync();

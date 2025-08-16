@@ -3,13 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Posts.Data;
+using VehicleMarketplace.Data;
 
 #nullable disable
 
 namespace VehicleMarketplace.Migrations
 {
-    [DbContext(typeof(PostsDbContext))]
+    [DbContext(typeof(VehicleMarketplaceDbContext))]
     [Migration("20250808150931_Initial-UserAccount")]
     partial class InitialUserAccount
     {

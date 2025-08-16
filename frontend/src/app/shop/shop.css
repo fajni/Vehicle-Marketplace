@@ -1,0 +1,12 @@
+* {
+    color: white;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+h1{
+    font-size: x-large;
+}

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Posts.Models
+namespace VehicleMarketplace.Models
 {
     // Unique properties: 
     [Index(nameof(Email), IsUnique = true)]

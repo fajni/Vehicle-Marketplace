@@ -1,16 +1,7 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using Posts.Dao;
-using Posts.Models;
-using System.Security.Claims;
+﻿using VehicleMarketplace.Dao;
+using VehicleMarketplace.Models;
 
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
-
-namespace Posts.Services
+namespace VehicleMarketplace.Services
 {
     public class UserAccountService
     {
@@ -88,7 +79,7 @@ namespace Posts.Services
 
             if (userAccount == null)
             {
-                throw new ArgumentNullException(nameof(userAccount), "User account must not be null!");
+                throw new ArgumentNullException(nameof(userAccount), "User account can NOT be null!");
             }
 
             var users = await GetAllUserAccounts();
@@ -113,7 +104,7 @@ namespace Posts.Services
 
         }
 
-        public async Task DeleteUserAccount(int id)
+        public async Task DeleteUserAccountById(int id)
         {
 
             UserAccount user = await userAccountDAO.GetUserByIdAsync(id);
@@ -124,7 +115,7 @@ namespace Posts.Services
             }
             else
             {
-                await userAccountDAO.DeleteUserByIdAsync(user);
+                await userAccountDAO.DeleteUserAccountAsync(user);
             }
         }
 
@@ -144,7 +135,7 @@ namespace Posts.Services
             }
             catch (Exception ex) 
             {
-                throw new Exception($"Could NOT update the user!");
+                throw new Exception($"Could NOT update the user! - {ex.Message}");
             }
 
         }

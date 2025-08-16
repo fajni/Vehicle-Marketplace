@@ -8,7 +8,7 @@
 
 <hr/>
 
-<img src= "./images/er.png"/>
+<img src= "../images/er.png"/>
 
 ## Database connection
 
@@ -136,6 +136,8 @@ app.UseAuthorization();
 
 ## Endpoints
 
+### User Accounts
+
 |  Request   | Link                      | Description                     |Role        |
 |------------|---------------------------|---------------------------------|------------|
 | GET        | /api/users                | Get all registered users        |Admin, User |
@@ -145,3 +147,35 @@ app.UseAuthorization();
 | PUT        | /api/users/update/{id}    | Update user                     |Admin, User |
 | POST       | /api/users/login          | Login                           |/           |
 | GET        | /api/users/logout         | Logout                          |Admin, User |
+
+### Car
+
+|  Request   | Link                      | Description                     |Role        |
+|------------|---------------------------|---------------------------------|------------|
+| GET        | /api/cars                 | Get all available cars          |/           |
+| GET        | /api/cars/{vin}           | Get car by vin                  |/           |
+| POST       | /api/cars/add             | Add new car                     |Admin, User |
+| DELETE     | /api/cars/delete/{vin}    | Delete car by vin               |Admin, User |
+| PUT        | /api/cars/update/{vin}    | Update car                      |Admin, User |
+
+### Motorcycle
+
+/api/motorcycles = /api/motors
+
+|  Request   | Link                          | Description                     |Role        |
+|------------|-------------------------------|---------------------------------|------------|
+| GET        | /api/motorcycles              | Get all available motorcycles   |/           |
+| GET        | /api/motorcycles/{vin}        | Get motorcycles by vin          |/           |
+| POST       | /api/motorcycles/add          | Add new motorcycles             |Admin, User |
+| DELETE     | /api/motorcycles/delete/{vin} | Delete motorcycles by vin       |Admin, User |
+| PUT        | /api/motorcycles/update/{vin} | Update motorcycles              |Admin, User |
+
+### Make
+
+|  Request   | Link                      | Description                     |Role        |
+|------------|---------------------------|---------------------------------|------------|
+| GET        | /api/makes                | Get all available makes         |/           |
+| GET        | /api/makes/{id}           | Get make by id                  |/           |
+| POST       | /api/makes/a  dd          | Add new make                    |Admin       |
+| DELETE     | /api/makes/delete/{id}    | Delete make by id               |Admin       |
+| PUT        | /api/makes/update/{id}    | Update make                     |Admin       |

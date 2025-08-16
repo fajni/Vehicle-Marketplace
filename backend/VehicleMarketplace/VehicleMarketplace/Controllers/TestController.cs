@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Posts.Controllers
+namespace VehicleMarketplace.Controllers
 {
     public class TestUser
     {
