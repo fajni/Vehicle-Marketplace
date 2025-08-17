@@ -45,12 +45,12 @@ namespace VehicleMarketplace.Dao
 
             existingMake.MakeName = updatedMake.MakeName;
 
-            if(updatedMake.cars.Count > 0)
+            if(updatedMake.cars?.Count > 0)
             {
                 existingMake.cars = updatedMake.cars;
             }
 
-            if (updatedMake.motorcycles.Count > 0)
+            if (updatedMake.motorcycles?.Count > 0)
             {
                 existingMake.motorcycles = updatedMake.motorcycles;
             }

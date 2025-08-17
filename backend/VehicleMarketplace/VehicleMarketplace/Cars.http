@@ -1,0 +1,68 @@
+﻿@Address = https://localhost:7000
+
+
+###
+
+POST {{Address}}/api/users/login?email=john@gmail.com&password=john123
+Accept: application/json
+Content-Type: application/json
+
+{
+}
+
+### 
+GET {{Address}}/api/users/status
+Accept: application/json
+
+### 
+GET {{Address}}/api/users
+Accept: application/json
+
+###
+
+###
+
+GET {{Address}}/api/cars
+Accept: application/json
+
+###
+
+GET {{Address}}/api/cars/1HGCM82633A004352
+Accept: application/json
+
+###
+
+POST {{Address}}/api/cars/add
+Accept: application/json
+Content-Type: application/json
+
+{
+  "vin": "1HGCM82633A004352",
+  "name": "Audi A4",
+  "description": "Audi A4 Limuzine",
+  "price": 25000,
+  "capacity": 5,
+  "power": 190,
+  
+  "makeId": 2,
+  "userAccountId": 1
+}
+
+###
+
+DELETE {{Address}}/api/cars/delete/1HGCM82633A004352
+Accept: application/json
+
+###
+
+PUT {{Address}}/api/cars/update/1HGCM82633A004352
+Accept: application/json
+Content-Type: application/json
+
+{
+    "vin": "1HGCM82633A004352",
+    "price": 10,
+
+    "makeId": 3,
+    "userAccountId": 1
+}

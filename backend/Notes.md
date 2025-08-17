@@ -176,6 +176,6 @@ app.UseAuthorization();
 |------------|---------------------------|---------------------------------|------------|
 | GET        | /api/makes                | Get all available makes         |/           |
 | GET        | /api/makes/{id}           | Get make by id                  |/           |
-| POST       | /api/makes/a  dd          | Add new make                    |Admin       |
+| POST       | /api/makes/add            | Add new make                    |Admin       |
 | DELETE     | /api/makes/delete/{id}    | Delete make by id               |Admin       |
 | PUT        | /api/makes/update/{id}    | Update make                     |Admin       |

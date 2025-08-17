@@ -42,7 +42,7 @@ namespace VehicleMarketplace.Controllers
 
         [HttpPost, Route("add")]
         [Authorize]
-        public async Task<IActionResult> AddMotorcycle([FromBody] Motorcycle motorcycle)
+        public async Task<IActionResult> AddMotorcycle([FromBody] VehicleDTO motorcycle)
         {
             if (!ModelState.IsValid || motorcycle == null)
             {
@@ -61,7 +61,7 @@ namespace VehicleMarketplace.Controllers
             }
         }
 
-        [HttpDelete, Route("/delete/{vin}")]
+        [HttpDelete, Route("delete/{vin}")]
         [Authorize]
         public async Task<IActionResult> DeleteMotorcycle([FromRoute] string vin)
         {
@@ -79,7 +79,7 @@ namespace VehicleMarketplace.Controllers
 
         [HttpPut, Route("update/{vin}")]
         [Authorize]
-        public async Task<IActionResult> UpdateMotorcycle([FromRoute] string vin, [FromBody] Motorcycle updatedMotorcycle)
+        public async Task<IActionResult> UpdateMotorcycle([FromRoute] string vin, [FromBody] VehicleDTO updatedMotorcycle)
         {
             try
             {

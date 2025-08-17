@@ -11,7 +11,9 @@ Simple API build in ASP.NET.
 
 - Database:
 
+<p align="center">
 <img src="./images/er.png"/>
+</p>
 
 ## Frontend
 

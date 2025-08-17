@@ -35,7 +35,7 @@
     "Parameters": [
       {
         "Name": "car",
-        "Type": "VehicleMarketplace.Models.Car",
+        "Type": "VehicleMarketplace.Models.VehicleDTO",
         "IsRequired": true
       }
     ],
@@ -72,7 +72,7 @@
       },
       {
         "Name": "updatedCar",
-        "Type": "VehicleMarketplace.Models.Car",
+        "Type": "VehicleMarketplace.Models.VehicleDTO",
         "IsRequired": true
       }
     ],
@@ -193,7 +193,23 @@
     "Parameters": [
       {
         "Name": "motorcycle",
-        "Type": "VehicleMarketplace.Models.Motorcycle",
+        "Type": "VehicleMarketplace.Models.VehicleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
+    "Method": "DeleteMotorcycle",
+    "RelativePath": "api/motorcycles/delete/{vin}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vin",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -214,7 +230,7 @@
       },
       {
         "Name": "updatedMotorcycle",
-        "Type": "VehicleMarketplace.Models.Motorcycle",
+        "Type": "VehicleMarketplace.Models.VehicleDTO",
         "IsRequired": true
       }
     ],
@@ -256,7 +272,23 @@
     "Parameters": [
       {
         "Name": "motorcycle",
-        "Type": "VehicleMarketplace.Models.Motorcycle",
+        "Type": "VehicleMarketplace.Models.VehicleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
+    "Method": "DeleteMotorcycle",
+    "RelativePath": "api/motors/delete/{vin}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vin",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -277,7 +309,7 @@
       },
       {
         "Name": "updatedMotorcycle",
-        "Type": "VehicleMarketplace.Models.Motorcycle",
+        "Type": "VehicleMarketplace.Models.VehicleDTO",
         "IsRequired": true
       }
     ],
@@ -438,22 +470,6 @@
       {
         "Name": "updatedUser",
         "Type": "VehicleMarketplace.Models.UserAccount",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "VehicleMarketplace.Controllers.MotorcycleController",
-    "Method": "DeleteMotorcycle",
-    "RelativePath": "delete/{vin}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "vin",
-        "Type": "System.String",
         "IsRequired": true
       }
     ],

@@ -1,0 +1,52 @@
+﻿@Address = https://localhost:7000
+
+
+###
+
+POST {{Address}}/api/users/login?email=john@gmail.com&password=john123
+Accept: application/json
+Content-Type: application/json
+
+{
+}
+
+### 
+GET {{Address}}/api/users/status
+Accept: application/json
+
+###
+
+###
+
+GET {{Address}}/api/makes
+Accept: application/json
+
+###
+
+GET {{Address}}/api/makes/1
+Accept: application/json
+
+###
+
+POST {{Address}}/api/makes/add
+Accept: application/json
+Content-Type: application/json
+
+{
+    "makeName": "Test"
+}
+
+###
+
+DELETE {{Address}}/api/makes/delete/13
+Accept: application/json
+
+###
+
+PUT {{Address}}/api/makes/update/14
+Accept: application/json
+Content-Type: application/json
+
+{
+    "makeName": "Test Make"
+}

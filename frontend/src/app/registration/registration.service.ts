@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { UserAccount } from "../models/UserAccount";
+import { BackendURL } from "../backendUrl";
 
 interface RegistrationResponse {
     message: string;
@@ -11,7 +12,7 @@ interface RegistrationResponse {
 })
 export class RegistrationService {
 
-    private url: string = 'https://localhost:7000/api';
+    private url: string = BackendURL.https;
 
     private httpClient = inject(HttpClient);
 

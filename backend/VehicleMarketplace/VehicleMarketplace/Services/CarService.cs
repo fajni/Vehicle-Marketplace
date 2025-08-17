@@ -7,9 +7,15 @@ namespace VehicleMarketplace.Services
     {
         private readonly CarDAO carDAO;
 
-        public CarService(CarDAO carDAO) 
+        private readonly MakeService makeService;
+
+        private readonly UserAccountService userAccountService;
+
+        public CarService(CarDAO carDAO, MakeService makeService, UserAccountService userAccountService) 
         {
             this.carDAO = carDAO;
+            this.makeService = makeService;
+            this.userAccountService = userAccountService;
         }
 
         public async Task<List<Car>> GetAllCars()
@@ -50,22 +56,46 @@ namespace VehicleMarketplace.Services
             }
         }
 
-        public async Task<Car> SaveCar(Car car)
+        public async Task<Car> SaveCar(VehicleDTO carDTO)
         {
-            if(car == null)
+
+            Make make = await makeService.GetMakeById(carDTO.MakeId);
+
+            UserAccount userAccount = await userAccountService.GetUserById(carDTO.UserAccountId);
+
+            if (make == null)
             {
-                throw new ArgumentNullException(nameof(car), "Car can NOT be null!");
+                throw new ArgumentNullException(nameof(make), "Make of a car can NOT be found!");
             }
+
+            if (userAccount == null)
+            {
+                throw new ArgumentNullException(nameof(make), "User account can NOT be found!");
+            }
+
+            Car newCar = new Car
+            {
+                Vin = carDTO.Vin,
+                Name = carDTO.Name,
+                Description = carDTO.Description,
+                Price = carDTO.Price,
+                Capacity = carDTO.Capacity,
+                Power = carDTO.Power,
+                Make = make,
+                MakeId = make.Id,
+                UserAccount = userAccount,
+                UserAccountId = userAccount.Id
+            };
 
             try
             {
-                await carDAO.SaveCarAsync(car);
+                await carDAO.SaveCarAsync(newCar);
 
-                return car;
+                return newCar;
             }
             catch (Exception e)
             {
-                throw new Exception($"Could NOT save car {car.Vin}! - {e.Message}");
+                throw new Exception($"Could NOT save car {newCar.Vin}! - {e.Message}");
             }
 
         }
@@ -94,16 +124,57 @@ namespace VehicleMarketplace.Services
             }
         }
 
-        public async Task<Car> UpdateCar(string vin, Car updatedCar)
+        public async Task<Car> UpdateCar(string vin, VehicleDTO updatedVehicle)
         {
             try
             {
-                Car car = await GetCarByVin(vin);
+                Car updatedCar = await GetCarByVin(vin);
 
-                if(car == null)
+                Make make = await this.makeService.GetMakeById(updatedVehicle.MakeId);
+
+                UserAccount userAccount = await this.userAccountService.GetUserById(updatedVehicle.UserAccountId);
+
+                if (updatedCar == null)
                 {
                     throw new Exception($"Car can't be null!");
                 }
+
+                if(string.IsNullOrWhiteSpace(updatedVehicle.Name))
+                {
+                    updatedVehicle.Name = updatedCar.Name;
+                }
+
+                if (string.IsNullOrWhiteSpace(updatedVehicle.Description))
+                {
+                    updatedVehicle.Description = updatedCar.Description;
+                }
+
+                if (updatedVehicle.Price <= 0)
+                {
+                    updatedVehicle.Price = updatedCar.Price;
+                }
+
+                if (updatedVehicle.Capacity <= 0)
+                {
+                    updatedVehicle.Capacity = updatedCar.Capacity;
+                }
+
+                if (updatedVehicle.Power <= 0)
+                {
+                    updatedVehicle.Power = updatedCar.Power;
+                }
+
+                updatedCar.Vin = updatedVehicle.Vin;
+                updatedCar.Name = updatedVehicle.Name;
+                updatedCar.Description = updatedVehicle.Description;
+                updatedCar.Price = updatedVehicle.Price;
+                updatedCar.Capacity = updatedVehicle.Capacity;
+                updatedCar.Power = updatedVehicle.Power;
+
+                updatedCar.MakeId = make.Id;
+                updatedCar.Make = make;
+                updatedCar.UserAccountId = userAccount.Id;
+                updatedCar.UserAccount = userAccount;
 
                 await carDAO.UpdateCarAsync(vin, updatedCar);
 

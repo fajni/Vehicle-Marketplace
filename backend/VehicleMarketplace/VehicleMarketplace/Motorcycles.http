@@ -1,0 +1,69 @@
+﻿@Address = https://localhost:7000
+
+
+###
+
+POST {{Address}}/api/users/login?email=admin@gmail.com&password=admin123
+Accept: application/json
+Content-Type: application/json
+
+{
+}
+
+### 
+GET {{Address}}/api/users/status
+Accept: application/json
+
+### 
+GET {{Address}}/api/users
+Accept: application/json
+
+###
+
+###
+
+GET {{Address}}/api/motorcycles
+Accept: application/json
+
+###
+
+GET {{Address}}/api/motorcycles/JYARM0618MA000123
+Accept: application/json
+
+###
+
+POST {{Address}}/api/motorcycles/add
+Accept: application/json
+Content-Type: application/json
+
+{
+  "vin": "JYARM0618MA000123",
+  "name": "Yamaha MT-07",
+  "description": "Middleweight naked motorcycle with agile handling",
+  "price": 7500,
+  "capacity": 2,
+  "power": 74,
+
+  "makeId": 11,
+  "userAccountId": 3
+}
+
+###
+
+DELETE {{Address}}/api/motorcycles/delete/JYARM0618MA000123
+Accept: application/json
+
+###
+
+PUT {{Address}}/api/motorcycles/update/JYARM0618MA000123
+Accept: application/json
+Content-Type: application/json
+
+{
+    "vin": "JYARM0618MA000123",
+    "price": 10,
+    "description": "Test desc",
+
+    "makeId": 11,
+    "userAccountId": 3
+}

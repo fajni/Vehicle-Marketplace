@@ -10,7 +10,11 @@ namespace VehicleMarketplace.Controllers
     public class CarController : ControllerBase
     {
         private readonly CarService carService;
+
+        private readonly MakeService makeService;
         
+        private readonly UserAccountService userAccountService;
+
         public CarController(CarService carService) 
         {
             this.carService = carService;
@@ -43,7 +47,7 @@ namespace VehicleMarketplace.Controllers
 
         [HttpPost, Route("add")]
         [Authorize]
-        public async Task<IActionResult> AddCar([FromBody] Car car)
+        public async Task<IActionResult> AddCar([FromBody] VehicleDTO car)
         {
             if (!ModelState.IsValid || car == null)
                 return BadRequest($"Car not valid! - {car}");
@@ -78,7 +82,7 @@ namespace VehicleMarketplace.Controllers
 
         [HttpPut, Route("update/{carVin}")]
         [Authorize]
-        public async Task<IActionResult> UpdateCar([FromRoute] string carVin, [FromBody] Car updatedCar)
+        public async Task<IActionResult> UpdateCar([FromRoute] string carVin, [FromBody] VehicleDTO updatedCar)
         {
             try
             {
