@@ -3,7 +3,9 @@ ul.topnav {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #684701;
+  background-color: rgb(34, 40, 49);
+  font-weight: 800;
+  border-bottom: 1px solid black;
 
   /* Set navbar fixed */
   position: static;

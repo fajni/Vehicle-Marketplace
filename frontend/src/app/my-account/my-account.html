@@ -1,56 +1,62 @@
 @if(message != "") {
-    <h1 class="message">{{message}}</h1>
+    <h1 class="message" style="text-align: center;">{{message}}</h1>
 }
 
 @if(authorized) {
     
     <br/>
 
-    <div class="card">
+    <div class="information">
         <form [formGroup]="updateForm" (ngSubmit)="updateUserAccount()">
             
-            <img src="assets/img/img_avatar.png" alt="Avatar">
+            <div class="">
+                <img src="assets/img/img_avatar.png" alt="Avatar" class="image">
+            </div>
             <br/>
 
-            <label>ID: </label><br/>
-            <input type="number" value="{{user?.id}}" readonly formControlName="id"/>
-            <br/>
+            <div class="details">
+                <label>ID: </label><br/>
+                <input type="number" value="{{user?.id}}" readonly formControlName="id"/>
+                <br/>
 
-            <label>Firstname: </label><br/>
-            <input type="text" value="{{user?.firstname}}" formControlName="firstname"/>
-            <br/>
+                <label>Firstname: </label><br/>
+                <input type="text" value="{{user?.firstname}}" formControlName="firstname"/>
+                <br/>
 
-            <label>Lastname: </label><br/>
-            <input type="text" value="{{user?.lastname}}" formControlName="lastname"/>
-            <br/>
+                <label>Lastname: </label><br/>
+                <input type="text" value="{{user?.lastname}}" formControlName="lastname"/>
+                <br/>
 
-            <label for="role"><b>Role:</b></label><br/>
-            <select id="role" formControlName="role">
-            @for(role of roles; track role.value) {
-                <option value="{{role.value}}">{{role.label}}</option>
-            }
-        </select>
-            <br/>
+                <label for="role"><b>Role:</b></label><br/>
+                <select id="role" formControlName="role">
+                    @for(role of roles; track role.value) {
+                        <option value="{{role.value}}">{{role.label}}</option>
+                    }
+                </select>
+                <br/>
 
-            <label>Email: </label><br/>
-            <input type="text" value="{{user?.email}}" formControlName="email"/>
-            <br/>
+                <label>Email: </label><br/>
+                <input type="text" value="{{user?.email}}" formControlName="email"/>
+                <br/>
 
-            <label>Password: </label><br/>
-            <input type="password" value="{{user?.password}}" formControlName="password"/>
+                <label>Password: </label><br/>
+                <input type="password" value="{{user?.password}}" formControlName="password"/>
 
-            <p><button type="submit" class="edit">UPDATE</button></p>
+                <p><button type="submit" class="update">UPDATE</button></p>
+
+            </div>
 
         </form>
+    </div>
 
+    <div class="details">
         <p><button (click)="deleteUserAccount(user!.id)" class="delete">DELETE</button></p>
-
     </div>
 
 }
 @else {
     <div style="color: red; text-align: center;">
-        <h1>You're not logged in!</h1>
-        <p><a routerLink="/login" style="color: white; text-decoration: underline;">Please Login</a></p>
+        <h1 class="message">You're not logged in!</h1>
+        <p class="message"><a routerLink="/login" style="color: white; text-decoration: underline;">Please Login</a></p>
     </div>
 }

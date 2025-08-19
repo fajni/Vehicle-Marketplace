@@ -1,1 +1,30 @@
-<p>motorcycles works!</p>
+
+
+<div class="motorcycle-list">
+
+    @for(motorcycle of motorcycles; track motorcycle.vin) {
+
+        <div class="motorcycle">
+
+            <div class="motorcycle-info">
+
+                <img src="https://i.pinimg.com/736x/40/8b/b0/408bb09524965d3fae10dcbe9f7168f1.jpg" alt="motorcycle">
+                
+                <h2 class="motorcycle-header">{{motorcycle.make}}: {{motorcycle.name}}</h2>
+                <p>{{motorcycle.description}}</p>
+
+                <hr/>
+                <p class="motorcycle-price">Price: {{motorcycle.price}} €</p>
+
+                <div class="motorcycle-details">
+                    <span>Capacity: {{motorcycle.capacity}} cm3</span>
+                    <span>Power: {{motorcycle.power}} hp</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    }
+
+</div>

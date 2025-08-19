@@ -2,20 +2,46 @@ import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LoginService } from '../login/login.service';
 import { MakeService } from './makes/make.service';
+import { Cars } from "./cars/cars";
+import { Motorcycles } from "./motorcycles/motorcycles";
 
 @Component({
   selector: 'app-shop',
-  imports: [RouterLink],
+  imports: [RouterLink, Cars, Motorcycles],
   templateUrl: './shop.html',
   styleUrl: './shop.css'
 })
 export class Shop implements OnInit {
   
   public isUserLoggedIn: boolean = false;
+  public selected: string[] = [];
 
   private loginService = inject(LoginService);
   private makeService = inject(MakeService);
   private destroyRef = inject(DestroyRef);
+
+  public onCheckboxChange(event: Event) {
+
+    const inputHTML = event.target as HTMLInputElement;
+
+    if (inputHTML.checked) {
+      
+      if (!this.selected.includes(inputHTML.value)) {
+        this.selected.push(inputHTML.value);
+      }
+
+    }
+    else {
+      this.selected = this.selected.filter(v => v !== inputHTML.value);
+    }
+
+    if (this.selected.length === 0) {
+      console.log('Nothing selected');
+    } else {
+      console.log('Selected:', this.selected.join(', '));
+    }
+
+  }
 
   ngOnInit(): void {
 
@@ -29,7 +55,7 @@ export class Shop implements OnInit {
     });
 
     const subscriptionMake = this.makeService.getMakes().subscribe({
-      next: (response) => { console.table(response); },
+      next: (response) => {  },
       error: (error) => { console.log(error); }
     });
 

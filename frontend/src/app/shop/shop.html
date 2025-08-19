@@ -1,5 +1,50 @@
+<div class="w3-container">
+
 <h1>List of available vehicles:</h1>
 
+<h2>Choose category: </h2>
+
+<form>
+  <input 
+    type="checkbox" 
+    id="cars" 
+    name="cars" 
+    value="Cars" 
+    (change)="onCheckboxChange($event)"
+  >
+  <label for="cars"> Cars </label><br>
+
+  <input 
+    type="checkbox" 
+    id="motorcycles" 
+    name="motorcycles" 
+    value="Motorcycles" 
+    (change)="onCheckboxChange($event)"
+  >
+  <label for="motorcycles"> Motorcycles </label><br>
+</form>
+
 @if(isUserLoggedIn === true) {
-    <a routerLink="#">Create NEW post</a>
+  <div class="center">
+    <a routerLink="#"><button class="btn">NEW</button></a>
+  </div>
 }
+
+<hr/>
+
+@if(selected.length == 0) {
+    <h1 style="text-align: center;">Please select category!</h1>
+}
+
+@for(select of selected; track select) {
+
+    @if(select == 'Cars'){
+        <app-cars />
+    }
+    @else if(select == 'Motorcycles'){
+        <app-motorcycles />
+    }
+
+}
+
+</div>

@@ -1,12 +1,40 @@
+@import url('https://www.w3schools.com/w3css/5/w3.css');
+
 * {
-    color: white;
+  color: white;
+  font-family: 'Poppins', 'sans-serif';
+  font-size: medium;
+}
+
+.center {
+  text-align: center;
 }
 
 a {
-    cursor: pointer;
-    text-decoration: underline;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 h1{
-    font-size: x-large;
+  font-size: x-large;
+  font-weight: 600;
+}
+
+label {
+  font-size: large;
+}
+
+.btn {
+  width: 50%;
+  font-size: large;
+  background-color: rgb(4, 170, 109, 0.7);
+  border: 0;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 1px 1px 1px 1px black;
+}
+
+.btn:hover {
+  background-color: rgb(4, 170, 109);
+  cursor: pointer;
 }

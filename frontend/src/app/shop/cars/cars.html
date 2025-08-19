@@ -1,1 +1,29 @@
-<p>cars works!</p>
+
+<div class="cars-list">
+
+    @for(car of cars; track car.vin) {
+
+        <div class="car">
+
+            <div class="car-info">
+
+                <img src="https://i.pinimg.com/1200x/72/45/df/7245dfbd681c60ae0db4bc7f2b2c1a0f.jpg" alt="car">
+                
+                <h2 class="car-header">{{car.make}}: {{car.name}}</h2>
+                <p>About: {{car.description}}</p>
+
+                <hr/>
+                <p class="car-price">Price: {{car.price}} €</p>
+
+                <div class="car-details">
+                    <span>Capacity: {{car.capacity}} cm3</span>
+                    <span>Power: {{car.power}} hp</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    }
+
+</div>
