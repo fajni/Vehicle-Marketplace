@@ -33,7 +33,7 @@ namespace VehicleMarketplace.Controllers
 
         // get user
         [HttpGet, Route("{userAccountId}")]
-        [Authorize(Roles = "Admin, User")]
+        //[Authorize(Roles = "Admin, User")]
         public async Task<IActionResult> GetUserAccount([FromRoute] int userAccountId)
         {
             try

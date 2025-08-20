@@ -5,6 +5,7 @@
     max-width: 100rem;
     margin: auto;
     margin-top: 20px;
+    color: white;
 }
 
 .car {
@@ -16,6 +17,7 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     background-color: rgb(0, 173, 181, 0.5);
     transition: transform 0.2s ease;
+    cursor: pointer;
 }
 
 .car:hover {

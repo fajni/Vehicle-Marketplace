@@ -17,9 +17,9 @@ export class CarService {
         return this.httpClient.get<IVehicleDTO[]>(`${this.url}`);
     }
 
-    public getCarByVin(): Observable<IVehicleDTO> {
+    public getCarByVin(vin: string): Observable<IVehicleDTO> {
 
-        return this.httpClient.get<IVehicleDTO>(``);
+        return this.httpClient.get<IVehicleDTO>(`${this.url}/${vin}`);
     }
 
 }

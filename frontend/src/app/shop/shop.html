@@ -1,50 +1,51 @@
 <div class="w3-container">
 
-<h1>List of available vehicles:</h1>
+  <h1>List of available vehicles:</h1>
 
-<h2>Choose category: </h2>
+  <form>
 
-<form>
-  <input 
-    type="checkbox" 
-    id="cars" 
-    name="cars" 
-    value="Cars" 
-    (change)="onCheckboxChange($event)"
-  >
-  <label for="cars"> Cars </label><br>
+    <h2>Sort by:</h2>
+    <select name="sort" (change)="onSortChange($event)">
+      <option value="Price">Price</option>
+      <option value="Power">Power</option>
+      <option value="Capacity">Capacity</option>
+    </select>
+    <br/><br/>
 
-  <input 
-    type="checkbox" 
-    id="motorcycles" 
-    name="motorcycles" 
-    value="Motorcycles" 
-    (change)="onCheckboxChange($event)"
-  >
-  <label for="motorcycles"> Motorcycles </label><br>
-</form>
+    <h2>Choose category: </h2>
 
-@if(isUserLoggedIn === true) {
-  <div class="center">
-    <a routerLink="#"><button class="btn">NEW</button></a>
-  </div>
-}
+    <input 
+      type="checkbox" 
+      id="cars" 
+      name="cars" 
+      value="Cars" 
+      (change)="onCheckboxChange($event)"
+    >
+    <label for="cars"> Cars </label><br>
 
-<hr/>
+    <input 
+      type="checkbox" 
+      id="motorcycles" 
+      name="motorcycles" 
+      value="Motorcycles" 
+      (change)="onCheckboxChange($event)"
+    >
+    <label for="motorcycles"> Motorcycles </label><br>
 
-@if(selected.length == 0) {
-    <h1 style="text-align: center;">Please select category!</h1>
-}
+  </form>
 
-@for(select of selected; track select) {
+  @if(selected.length == 0) {
+    <h1>Please select category!</h1>
+  }
+
+  @for(select of selected; track select) {
 
     @if(select == 'Cars'){
-        <app-cars />
+        <app-cars [sort]="sort" />
     }
     @else if(select == 'Motorcycles'){
-        <app-motorcycles />
+        <app-motorcycles [sort]="sort" />
     }
-
-}
+  }
 
 </div>

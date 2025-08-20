@@ -9,11 +9,13 @@ This project is made for learning purposes.
 
 Simple API build in ASP.NET.
 
-- Database:
+<details>
+<summary>Database</summary>
 
 <p align="center">
 <img src="./images/er.png"/>
 </p>
+</details>
 
 ## Frontend
 
@@ -27,14 +29,14 @@ Frontend in Angular 20.
 <img src="./images/Home.png" />
 <hr/>
 
-- Shop:
-
-<img src="./images/Shop.png" />
-<hr/>
-
 - About:
 
 <img src="./images/About.png" />
+<hr/>
+
+- Shop:
+
+<img src="./images/Shop.png" />
 <hr/>
 
 - Register:

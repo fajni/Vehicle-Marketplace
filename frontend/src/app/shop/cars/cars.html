@@ -3,7 +3,7 @@
 
     @for(car of cars; track car.vin) {
 
-        <div class="car">
+        <div class="car" [routerLink]="['/cars', car.vin]">
 
             <div class="car-info">
 

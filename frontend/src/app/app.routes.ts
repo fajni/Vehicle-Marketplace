@@ -5,6 +5,10 @@ import { Home } from './home/home';
 import { Shop } from './shop/shop';
 import { About } from './about/about';
 import { MyAccount } from './my-account/my-account';
+import { Cars } from './shop/cars/cars';
+import { Motorcycles } from './shop/motorcycles/motorcycles';
+import { Car } from './shop/cars/car/car';
+import { Motorcycle } from './shop/motorcycles/motorcycle/motorcycle';
 
 export const routes: Routes = [
     {
@@ -17,12 +21,36 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
+        path: 'about',
+        component: About
+    },
+    {
         path: 'shop',
         component: Shop
     },
     {
-        path: 'about',
-        component: About
+        path: 'cars',
+        component: Cars
+    },
+    {
+        path: 'motorcycles',
+        component: Motorcycles
+    },
+    {
+        path: 'cars/:vin',
+        component: Car
+    },
+    {
+        path: 'motorcycles/:vin',
+        component: Motorcycle
+    },
+    {
+        path: 'motors/:vin',
+        redirectTo: 'motorcycles/:vin'
+    },
+    {
+        path: 'motors',
+        redirectTo: 'motorcycles'
     },
     {
         path: 'login',

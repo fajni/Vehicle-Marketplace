@@ -7,7 +7,7 @@ import { Motorcycles } from "./motorcycles/motorcycles";
 
 @Component({
   selector: 'app-shop',
-  imports: [RouterLink, Cars, Motorcycles],
+  imports: [Cars, Motorcycles],
   templateUrl: './shop.html',
   styleUrl: './shop.css'
 })
@@ -15,6 +15,7 @@ export class Shop implements OnInit {
   
   public isUserLoggedIn: boolean = false;
   public selected: string[] = [];
+  public sort: string = "Price";
 
   private loginService = inject(LoginService);
   private makeService = inject(MakeService);
@@ -41,6 +42,12 @@ export class Shop implements OnInit {
       console.log('Selected:', this.selected.join(', '));
     }
 
+  }
+
+  public onSortChange(event: Event) {
+
+    const select = event.target as HTMLSelectElement;
+    this.sort = select.value;
   }
 
   ngOnInit(): void {

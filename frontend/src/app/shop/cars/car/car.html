@@ -1,0 +1,88 @@
+@if(message != "") {
+    <h1>{{message}}</h1>
+}
+
+@if(car != null) {
+
+    <br/>
+    <h1>{{car.make}}: {{car.name}}</h1>
+    <div class="car-container">
+
+        <div class="car-image">
+            <img src="https://i.pinimg.com/1200x/72/45/df/7245dfbd681c60ae0db4bc7f2b2c1a0f.jpg" />
+        </div>
+
+        <div class="car-details">
+            <table>
+                <tr>
+                    <th>TITLE</th>
+                    <td style="font-weight: 700;">{{car.make}}: {{car.name}}</td>
+                </tr>
+                <tr>
+                    <th>VIN</th>
+                    <td>{{ car.vin }}</td>
+                </tr>
+                <tr>
+                    <th>Make</th>
+                    <td>{{ car.make }}</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ car.name }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ car.description }}</td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td>{{ car.price }} €</td>
+                </tr>
+                <tr>
+                    <th>Capacity</th>
+                    <td>{{ car.capacity }} cm<sup>3</sup></td>
+                </tr>
+                <tr>
+                    <th>Power</th>
+                    <td>{{ car.power }} hp</td>
+                </tr>
+                <tr>
+                    <th>Seller</th>
+                    <td>{{ car.userAccountId }}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <br/>
+    
+    @if(userAccount != null) {
+
+        <div class="car-container">
+
+            <div class="car-details">
+                <h1>SELLER</h1>
+                <br/>
+                <table>
+                    <tr>
+                        <th>EMAIL</th>
+                        <td>{{ userAccount.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>ID</th>
+                        <td>{{ userAccount.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>Firstname</th>
+                        <td>{{ userAccount.firstname }}</td>
+                    </tr>
+                    <tr>
+                        <th>Lastname</th>
+                        <td>{{ userAccount.lastname }}</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    }
+}

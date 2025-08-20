@@ -4,7 +4,7 @@
 
     @for(motorcycle of motorcycles; track motorcycle.vin) {
 
-        <div class="motorcycle">
+        <div class="motorcycle" [routerLink]="['/motorcycles', motorcycle.vin]">
 
             <div class="motorcycle-info">
 

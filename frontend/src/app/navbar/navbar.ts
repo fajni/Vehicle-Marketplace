@@ -41,6 +41,14 @@ export class Navbar implements OnInit{
 
   }
 
+  public showCars() {
+    this.router.navigate(['/cars']);
+  }
+
+  public showMotorcycles() {
+    this.router.navigate(['/motorcycles']);
+  }
+
   ngOnInit(): void {
 
     const routerSubscription = this.router.events.pipe(

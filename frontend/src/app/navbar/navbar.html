@@ -1,8 +1,15 @@
 <ul class="topnav">
   
   <li><a routerLink="">Home</a></li>
-  <li><a routerLink="/shop">Shop</a></li>
   <li><a routerLink="/about">About</a></li>
+
+  <li class="dropdown">
+    <a routerLink="/shop" class="dropbtn">Shop</a>
+    <div class="dropdown-content">
+      <a (click)="showCars()">Cars</a>
+      <a (click)="showMotorcycles()">Motorcycles</a>
+    </div>
+  </li>
 
   @if(!userLoggedIn) {
     <li class="right"><a routerLink="/login">Login</a></li>
@@ -10,6 +17,13 @@
   }
 
   @if(userLoggedIn) {
+    <li class="dropdown">
+      <a href="" class="dropbtn">Sell</a>
+      <div class="dropdown-content">
+        <a href="">Car</a>
+        <a href="">Motorcycle</a>
+      </div>
+    </li>
     <li class="right"><a (click)="logout()" href="">Log out</a></li>
     <li class="right"><a routerLink="/account">My Account</a></li>
   }

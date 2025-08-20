@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "E:\\Projects\\Angular-Posts\\backend\\VehicleMarketplace\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{07C87B2B-B08F-6A58-ADCF-989B6EC403B8}|VehicleMarketplace\\VehicleMarketplace.csproj|e:\\projects\\angular-posts\\backend\\vehiclemarketplace\\vehiclemarketplace\\makes.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{07C87B2B-B08F-6A58-ADCF-989B6EC403B8}|VehicleMarketplace\\VehicleMarketplace.csproj|solutionrelative:vehiclemarketplace\\makes.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{07C87B2B-B08F-6A58-ADCF-989B6EC403B8}|VehicleMarketplace\\VehicleMarketplace.csproj|e:\\projects\\angular-posts\\backend\\vehiclemarketplace\\vehiclemarketplace\\controllers\\useraccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{07C87B2B-B08F-6A58-ADCF-989B6EC403B8}|VehicleMarketplace\\VehicleMarketplace.csproj|solutionrelative:vehiclemarketplace\\controllers\\useraccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{07C87B2B-B08F-6A58-ADCF-989B6EC403B8}|VehicleMarketplace\\VehicleMarketplace.csproj|e:\\projects\\angular-posts\\backend\\vehiclemarketplace\\vehiclemarketplace\\models\\make.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{07C87B2B-B08F-6A58-ADCF-989B6EC403B8}|VehicleMarketplace\\VehicleMarketplace.csproj|solutionrelative:vehiclemarketplace\\models\\make.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{07C87B2B-B08F-6A58-ADCF-989B6EC403B8}|VehicleMarketplace\\VehicleMarketplace.csproj|e:\\projects\\angular-posts\\backend\\vehiclemarketplace\\vehiclemarketplace\\cars.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{07C87B2B-B08F-6A58-ADCF-989B6EC403B8}|VehicleMarketplace\\VehicleMarketplace.csproj|solutionrelative:vehiclemarketplace\\cars.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{07C87B2B-B08F-6A58-ADCF-989B6EC403B8}|VehicleMarketplace\\VehicleMarketplace.csproj|e:\\projects\\angular-posts\\backend\\vehiclemarketplace\\vehiclemarketplace\\useraccounts.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{07C87B2B-B08F-6A58-ADCF-989B6EC403B8}|VehicleMarketplace\\VehicleMarketplace.csproj|solutionrelative:vehiclemarketplace\\useraccounts.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Projects\\Angular-Posts\\backend\\Notes.md||{24510B54-A648-4D69-A6C5-F68CBDF07546}"
@@ -21,11 +25,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 232,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Notes.md",
               "DocumentMoniker": "E:\\Projects\\Angular-Posts\\backend\\Notes.md",
               "RelativeDocumentMoniker": "..\\Notes.md",
@@ -42,28 +46,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Make.cs",
-              "DocumentMoniker": "E:\\Projects\\Angular-Posts\\backend\\VehicleMarketplace\\VehicleMarketplace\\Models\\Make.cs",
-              "RelativeDocumentMoniker": "VehicleMarketplace\\Models\\Make.cs",
-              "ToolTip": "E:\\Projects\\Angular-Posts\\backend\\VehicleMarketplace\\VehicleMarketplace\\Models\\Make.cs",
-              "RelativeToolTip": "VehicleMarketplace\\Models\\Make.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "UserAccountController.cs",
+              "DocumentMoniker": "E:\\Projects\\Angular-Posts\\backend\\VehicleMarketplace\\VehicleMarketplace\\Controllers\\UserAccountController.cs",
+              "RelativeDocumentMoniker": "VehicleMarketplace\\Controllers\\UserAccountController.cs",
+              "ToolTip": "E:\\Projects\\Angular-Posts\\backend\\VehicleMarketplace\\VehicleMarketplace\\Controllers\\UserAccountController.cs",
+              "RelativeToolTip": "VehicleMarketplace\\Controllers\\UserAccountController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAACMAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T09:50:31.812Z",
+              "WhenOpened": "2025-08-20T20:01:03.516Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Makes.http",
-              "DocumentMoniker": "E:\\Projects\\Angular-Posts\\backend\\VehicleMarketplace\\VehicleMarketplace\\Makes.http",
-              "RelativeDocumentMoniker": "VehicleMarketplace\\Makes.http",
-              "ToolTip": "E:\\Projects\\Angular-Posts\\backend\\VehicleMarketplace\\VehicleMarketplace\\Makes.http",
-              "RelativeToolTip": "VehicleMarketplace\\Makes.http",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "UserAccounts.http",
+              "DocumentMoniker": "E:\\Projects\\Angular-Posts\\backend\\VehicleMarketplace\\VehicleMarketplace\\UserAccounts.http",
+              "RelativeDocumentMoniker": "VehicleMarketplace\\UserAccounts.http",
+              "ToolTip": "E:\\Projects\\Angular-Posts\\backend\\VehicleMarketplace\\VehicleMarketplace\\UserAccounts.http",
+              "RelativeToolTip": "VehicleMarketplace\\UserAccounts.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-08-18T09:50:12.294Z",
+              "WhenOpened": "2025-08-20T19:58:59.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Cars.http",
+              "DocumentMoniker": "E:\\Projects\\Angular-Posts\\backend\\VehicleMarketplace\\VehicleMarketplace\\Cars.http",
+              "RelativeDocumentMoniker": "VehicleMarketplace\\Cars.http",
+              "ToolTip": "E:\\Projects\\Angular-Posts\\backend\\VehicleMarketplace\\VehicleMarketplace\\Cars.http",
+              "RelativeToolTip": "VehicleMarketplace\\Cars.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-08-20T18:16:42.309Z",
               "EditorCaption": ""
             }
           ]
