@@ -39,6 +39,16 @@ Frontend in Angular 20.
 <img src="./images/Shop.png" />
 <hr/>
 
+- Vehicle:
+
+<img src="./images/Vehicle.png">
+<hr/>
+
+- Garage:
+
+<img src="./images/Garage.png">
+<hr/>
+
 - Register:
 
 <img src="./images/Registration.png" />

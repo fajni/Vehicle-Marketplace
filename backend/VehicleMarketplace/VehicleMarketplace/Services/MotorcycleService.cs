@@ -56,6 +56,29 @@ namespace VehicleMarketplace.Services
             }
         }
 
+        public async Task<List<Motorcycle>> GetUserAccountMotorcyclesByUserAccountId(int userAccountId)
+        {
+            List<Motorcycle> allMotorcycles = await GetAllMotorcycles();
+            List<Motorcycle> userAccountMotorcycles = new List<Motorcycle>();
+
+            try
+            {
+                for(int i= 0; i < allMotorcycles.Count; i++)
+                {
+                    if (allMotorcycles[i].UserAccountId == userAccountId)
+                    {
+                        userAccountMotorcycles.Add(allMotorcycles[i]);
+                    }
+                }
+
+                return userAccountMotorcycles;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error occured - {ex.Message}");
+            }
+        }
+
         public async Task<Motorcycle> SaveMotorcycle(VehicleDTO motorcycleDTO)
         {
 

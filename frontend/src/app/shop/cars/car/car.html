@@ -9,7 +9,17 @@
     <div class="car-container">
 
         <div class="car-image">
-            <img src="https://i.pinimg.com/1200x/72/45/df/7245dfbd681c60ae0db4bc7f2b2c1a0f.jpg" />
+            <div class="slideshow-container">
+                @for(image of car.images; track $index) {
+                    <div class="mySlide" [class.active]="$index === slideIndex">
+                        <img [src]="image.src" />
+                    </div>
+                }
+
+                <!-- Prev/Next buttons -->
+                <a class="prev" (click)="prevSlide()">&#10094;</a>
+                <a class="next" (click)="nextSlide()">&#10095;</a>
+            </div>
         </div>
 
         <div class="car-details">
@@ -82,7 +92,12 @@
                     </tr>
                 </table>
             </div>
+        </div>
 
+        <br/>
+        <div class="car-container">
+            <h1 class="car-details"> CALL</h1>
+            <h1 class="car-details">MESSAGE</h1>
         </div>
     }
 }

@@ -1,4 +1,5 @@
-﻿using VehicleMarketplace.Dao;
+﻿using Humanizer;
+using VehicleMarketplace.Dao;
 using VehicleMarketplace.Models;
 
 namespace VehicleMarketplace.Services
@@ -53,6 +54,30 @@ namespace VehicleMarketplace.Services
             catch (Exception ex)
             {
                 throw new Exception($"Could NOT get car {vin} - {ex.Message}");
+            }
+        }
+
+        public async Task<List<Car>> GetUserAccountCarsByUserAccountId(int userAccountId)
+        {
+
+            List<Car> allCars = await GetAllCars();
+            List<Car> userAccountCars = new List<Car>();
+
+            try
+            {
+                for (int i = 0; i < allCars.Count; i++)
+                {
+                    if (allCars[i].UserAccountId == userAccountId)
+                    {
+                        userAccountCars.Add(allCars[i]);
+                    }
+                }
+
+                return userAccountCars;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error occured - {ex.Message}");
             }
         }
 

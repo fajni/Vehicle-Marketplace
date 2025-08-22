@@ -19,6 +19,8 @@ builder.Services.AddScoped<MotorcycleService>();
 builder.Services.AddScoped<MotorcycleDAO>();
 builder.Services.AddScoped<MakeService>();
 builder.Services.AddScoped<MakeDAO>();
+builder.Services.AddScoped<ImageService>();
+builder.Services.AddScoped<ImageDAO>();
 
 // builder.Services.AddSingleton<UserAccountService>();
 

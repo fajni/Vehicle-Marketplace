@@ -9,6 +9,7 @@ import { Cars } from './shop/cars/cars';
 import { Motorcycles } from './shop/motorcycles/motorcycles';
 import { Car } from './shop/cars/car/car';
 import { Motorcycle } from './shop/motorcycles/motorcycle/motorcycle';
+import { MyGarage } from './my-garage/my-garage';
 
 export const routes: Routes = [
     {
@@ -63,5 +64,9 @@ export const routes: Routes = [
     {
         path: 'account',
         component: MyAccount
+    },
+    {
+        path: 'garage',
+        component: MyGarage
     }
 ];

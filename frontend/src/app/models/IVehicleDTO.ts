@@ -1,3 +1,5 @@
+import { Image } from "./Image";
+
 export interface IVehicleDTO {
     
     vin: string;
@@ -7,6 +9,8 @@ export interface IVehicleDTO {
     price: number;
     capacity: number;
     power: number;
+
+    images: Image[];
 
     makeId: number;
     userAccountId: number;

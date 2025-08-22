@@ -3,6 +3,7 @@ import { inject, Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
 import { UserAccount } from "../models/UserAccount";
 import { BackendURL } from "../backendUrl";
+import { IVehicleDTO } from "../models/IVehicleDTO";
 
 @Injectable({providedIn: 'root'})
 export class MyAccountService {
@@ -20,6 +21,11 @@ export class MyAccountService {
             .pipe(map(users => users.find(user => user.email === email)));
     }
 
+    public getUserAccountVehiclesByUserAccountId(id: number) {
+
+        return this.httpClient.get<IVehicleDTO[]>(`${this.url}/me/vehicles/${id}`, { withCredentials: true })
+    }
+
     public updateUserAccount(id: number, updatedUser: UserAccount) {
         return this.httpClient.put<string>(`${this.url}/users/update/${id}`, updatedUser, { withCredentials: true });
     }
@@ -27,4 +33,5 @@ export class MyAccountService {
     public deleteUserAccount(id: number) {
         return this.httpClient.delete<string>(`${this.url}/users/delete/${id}`, { withCredentials: true });
     }
+
 }

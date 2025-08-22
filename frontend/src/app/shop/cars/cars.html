@@ -3,25 +3,30 @@
 
     @for(car of cars; track car.vin) {
 
-        <div class="car" [routerLink]="['/cars', car.vin]">
+        <div class="car">
 
             <div class="car-info">
 
-                <img src="https://i.pinimg.com/1200x/72/45/df/7245dfbd681c60ae0db4bc7f2b2c1a0f.jpg" alt="car">
+                <img [src]="car.images[0].src" alt="car">
                 
                 <h2 class="car-header">{{car.make}}: {{car.name}}</h2>
+                
                 <p>About: {{car.description}}</p>
+                @if(car.description == "") {
+                    <p>/</p>
+                }
 
                 <hr/>
                 <p class="car-price">Price: {{car.price}} €</p>
 
                 <div class="car-details">
-                    <span>Capacity: {{car.capacity}} cm3</span>
+                    <span>Capacity: {{car.capacity}} cm3</span><br/>
                     <span>Power: {{car.power}} hp</span>
                 </div>
 
             </div>
 
+            <button [routerLink]="['/cars', car.vin]">See More</button>
         </div>
 
     }

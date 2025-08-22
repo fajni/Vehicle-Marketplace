@@ -1,0 +1,35 @@
+﻿@Address = https://localhost:7000
+
+###
+
+GET {{Address}}/api/images
+Accept: application/json
+
+###
+
+GET {{Address}}/api/images/cacrs/1HGCM82633A000001
+Accept: application/json
+
+###
+
+GET {{Address}}/api/images/motorcycles/3HDMC82633M000101
+Accept: application/json
+
+###
+
+GET {{Address}}/api/users/status
+Accept: application/json
+
+###
+
+GET {{Address}}/api/users
+Accept: application/json
+
+###
+
+POST {{Address}}/api/users/login?email=john@gmail.com&password=john123
+Accept: application/json
+Content-Type: application/json
+
+###
+

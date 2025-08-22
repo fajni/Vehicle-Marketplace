@@ -5,6 +5,7 @@ import { Make } from '../../models/Make';
 import { MakeService } from '../makes/make.service';
 import { forkJoin, map, switchMap } from 'rxjs';
 import { RouterLink } from '@angular/router';
+import { ImageService } from '../images/image.service';
 
 @Component({
   selector: 'app-cars',
@@ -16,31 +17,37 @@ export class Cars implements OnInit{
 
   private carService = inject(CarService);
   private makeService = inject(MakeService);
+  private imageService = inject(ImageService);
   private destroyRef = inject(DestroyRef);
 
   @Input({required: true}) public sort!: string;
 
   public cars: IVehicleDTO[] = [];
-  public makes: Make[] = [];
 
   public ngOnInit(): void {
     
     const subscription = this.carService.getCars().pipe(
-      switchMap(cars => {
-        // create array Observable for every car.makeId
-        const makeRequests = cars.map(car => 
-          this.makeService.getMakeById(car.makeId).pipe(
-            map(make => ({ ...car, make: make.makeName }))
-          )
-        );
-
-      // start all requests parallel
-      return forkJoin(makeRequests);
-    })
+      switchMap(cars => this.makeService.getMakes().pipe(
+        map( makes => ({ cars, makes }) )
+      )),
+      switchMap(cars => this.imageService.getAllImages().pipe(
+        map( images => ({ ...cars, images }) )
+      ))
     ).subscribe({
-      next: (carsWithMakes) => { 
-        
-        this.cars = carsWithMakes;
+      next: (fullResponse) => {
+
+        for(let i = 0; i < fullResponse.cars.length; i++) {
+          
+          const car = fullResponse.cars[i];
+
+          const make = fullResponse.makes.find(m => m.id === car.makeId);
+          if(make)
+            car.make = make.makeName;
+
+          car.images = fullResponse.images.filter(img => img.carVin === car.vin);
+
+          this.cars.push(car);
+        }
 
         switch(this.sort) {
           

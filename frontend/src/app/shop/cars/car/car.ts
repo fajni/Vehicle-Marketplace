@@ -6,6 +6,7 @@ import { MakeService } from '../../makes/make.service';
 import { map, switchMap } from 'rxjs';
 import { UserAccount } from '../../../models/UserAccount';
 import { MyAccountService } from '../../../my-account/my-account.service';
+import { ImageService } from '../../images/image.service';
 
 @Component({
   selector: 'app-car',
@@ -19,6 +20,7 @@ export class Car implements OnInit {
   private carService = inject(CarService);
   private makeService = inject(MakeService);
   private userAccountService = inject(MyAccountService);
+  private imageService = inject(ImageService);
   private destroyRef = inject(DestroyRef);
 
   public vin!: string;
@@ -27,6 +29,22 @@ export class Car implements OnInit {
 
   public message: string | undefined;
 
+  public slideIndex: number = 0;
+
+  nextSlide() {
+
+    if (this.car && this.car.images.length > 0) {
+      this.slideIndex = (this.slideIndex + 1) % this.car.images.length;
+    }
+
+  }
+
+  prevSlide() {
+    if (this.car && this.car.images.length > 0) {
+      this.slideIndex =
+        (this.slideIndex - 1 + this.car.images.length) % this.car.images.length;
+    }
+  }
   
   public ngOnInit(): void {
 
@@ -38,11 +56,16 @@ export class Car implements OnInit {
       )),
       switchMap(car => this.userAccountService.getUserById(car.userAccountId).pipe(
         map(userAccount => ({ ...car, userAccount: userAccount }))
+      )),
+      switchMap(car => this.imageService.getCarImagesByVin(car.vin).pipe(
+        map(images => ({ ...car, images: images }))
       ))
       ).subscribe({
-        next: (carWithMakeAndUserAccount) => { 
-          this.car = carWithMakeAndUserAccount;
-          this.userAccount = carWithMakeAndUserAccount.userAccount;
+        next: (carWithMakeAndUserAccountAndImages) => { 
+
+          this.car = carWithMakeAndUserAccountAndImages;
+          this.userAccount = carWithMakeAndUserAccountAndImages.userAccount;
+
         },
         error: (err) => { this.message = err.message }
       }

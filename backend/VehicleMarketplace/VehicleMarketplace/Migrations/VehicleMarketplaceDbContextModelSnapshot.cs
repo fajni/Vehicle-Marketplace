@@ -63,6 +63,35 @@ namespace VehicleMarketplace.Migrations
                     b.ToTable("cars");
                 });
 
+            modelBuilder.Entity("VehicleMarketplace.Models.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("image_id");
+
+                    b.Property<string>("CarVin")
+                        .HasColumnType("varchar(17)")
+                        .HasColumnName("image_car_vin");
+
+                    b.Property<string>("MotorcycleVin")
+                        .HasColumnType("varchar(17)")
+                        .HasColumnName("image_motorcycle_vin");
+
+                    b.Property<string>("Src")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("image_path");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarVin");
+
+                    b.HasIndex("MotorcycleVin");
+
+                    b.ToTable("images");
+                });
+
             modelBuilder.Entity("VehicleMarketplace.Models.Make", b =>
                 {
                     b.Property<int>("Id")
@@ -244,6 +273,23 @@ namespace VehicleMarketplace.Migrations
                     b.Navigation("UserAccount");
                 });
 
+            modelBuilder.Entity("VehicleMarketplace.Models.Image", b =>
+                {
+                    b.HasOne("VehicleMarketplace.Models.Car", "Car")
+                        .WithMany("Images")
+                        .HasForeignKey("CarVin")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("VehicleMarketplace.Models.Motorcycle", "Motorcycle")
+                        .WithMany("Images")
+                        .HasForeignKey("MotorcycleVin")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Car");
+
+                    b.Navigation("Motorcycle");
+                });
+
             modelBuilder.Entity("VehicleMarketplace.Models.Motorcycle", b =>
                 {
                     b.HasOne("VehicleMarketplace.Models.Make", "Make")
@@ -263,11 +309,21 @@ namespace VehicleMarketplace.Migrations
                     b.Navigation("UserAccount");
                 });
 
+            modelBuilder.Entity("VehicleMarketplace.Models.Car", b =>
+                {
+                    b.Navigation("Images");
+                });
+
             modelBuilder.Entity("VehicleMarketplace.Models.Make", b =>
                 {
                     b.Navigation("cars");
 
                     b.Navigation("motorcycles");
+                });
+
+            modelBuilder.Entity("VehicleMarketplace.Models.Motorcycle", b =>
+                {
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,7 +9,17 @@
     <div class="motorcycle-container">
 
         <div class="motorcycle-image">
-            <img src="https://i.pinimg.com/736x/40/8b/b0/408bb09524965d3fae10dcbe9f7168f1.jpg" />
+            <div class="slideshow-container">
+                @for(image of motorcycle.images; track $index) {
+                    <div class="mySlide" [class.active]="$index === slideIndex">
+                        <img [src]="image.src" />
+                    </div>
+                }
+
+                <!-- Prev/Next buttons -->
+                <a class="prev" (click)="prevSlide()">&#10094;</a>
+                <a class="next" (click)="nextSlide()">&#10095;</a>
+            </div>
         </div>
 
         <div class="motorcycle-details">

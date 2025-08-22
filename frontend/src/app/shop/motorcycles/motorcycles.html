@@ -4,14 +4,18 @@
 
     @for(motorcycle of motorcycles; track motorcycle.vin) {
 
-        <div class="motorcycle" [routerLink]="['/motorcycles', motorcycle.vin]">
+        <div class="motorcycle">
 
             <div class="motorcycle-info">
 
-                <img src="https://i.pinimg.com/736x/40/8b/b0/408bb09524965d3fae10dcbe9f7168f1.jpg" alt="motorcycle">
+                <img [src]="motorcycle.images[0].src" alt="motorcycle">
                 
                 <h2 class="motorcycle-header">{{motorcycle.make}}: {{motorcycle.name}}</h2>
+                
                 <p>{{motorcycle.description}}</p>
+                @if(motorcycle.description == "") {
+                    <p>/</p>
+                }
 
                 <hr/>
                 <p class="motorcycle-price">Price: {{motorcycle.price}} €</p>
@@ -22,6 +26,8 @@
                 </div>
 
             </div>
+
+            <button [routerLink]="['/motorcycles', motorcycle.vin]">See More</button>
 
         </div>
 

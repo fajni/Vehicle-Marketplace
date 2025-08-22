@@ -22,7 +22,8 @@ namespace VehicleMarketplace.Data
                 entity.HasKey(car => car.Vin); // primary key
                 entity.Property(car => car.Vin).HasMaxLength(17);
 
-                //foreign key defined in class
+                //foreign key are defined in class
+                // ...
 
                 entity.Property(car => car.Vin).HasColumnName("vin");
                 entity.Property(car => car.Name).HasColumnName("name");
@@ -31,6 +32,11 @@ namespace VehicleMarketplace.Data
                 entity.Property(car => car.Capacity).HasColumnName("capacity");
                 entity.Property(car => car.Power).HasColumnName("power");
             });
+
+            modelBuilder.Entity<Car>().HasMany(car => car.Images)
+                .WithOne(image => image.Car)
+                .HasForeignKey(image => image.CarVin)
+                .OnDelete(DeleteBehavior.Cascade); // if you delete the Car, also delete the car's images
 
             /* Map Motorcycle table */
             modelBuilder.Entity<Motorcycle>(entity => {
@@ -45,6 +51,11 @@ namespace VehicleMarketplace.Data
                 entity.Property(motorcycler => motorcycler.Capacity).HasColumnName("capacity");
                 entity.Property(motorcycler => motorcycler.Power).HasColumnName("power");
             });
+
+            modelBuilder.Entity<Motorcycle>().HasMany(motorcycle => motorcycle.Images)
+                .WithOne(image => image.Motorcycle)
+                .HasForeignKey(image => image.MotorcycleVin)
+                .OnDelete(DeleteBehavior.Cascade); // if you delete the Motorcycle, also delete the motorcycle's images
 
             /* Add starting Makes values */
             modelBuilder.Entity<Make>().HasData(
@@ -70,5 +81,7 @@ namespace VehicleMarketplace.Data
         public DbSet<Motorcycle> Motorcyclers { get; set; }
 
         public DbSet<Make> Makes { get; set; }
+
+        public DbSet<Image> Images { get; set; }
     }
 }

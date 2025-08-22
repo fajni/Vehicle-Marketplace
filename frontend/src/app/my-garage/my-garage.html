@@ -1,0 +1,70 @@
+
+<h1>{{account?.firstname}} {{account?.lastname}} vehicles: </h1>
+
+@for(vehicle of myVehicles; track vehicle) {
+  <br />
+  <h1>{{ vehicle.make }}: {{ vehicle.name }}</h1>
+
+  <div class="container">
+
+    <div class="image">
+      <div class="slideshow-container">
+
+        @for(image of vehicle.images; track $index) {
+          <div class="mySlide" [class.active]="slideIndexes[vehicle.vin] === $index">
+            <img [src]="image.src" />
+          </div>
+        }
+
+        <!-- Prev/Next buttons -->
+        <a class="prev" (click)="prevSlide(vehicle.vin, vehicle.images.length)">&#10094;</a>
+        <a class="next" (click)="nextSlide(vehicle.vin, vehicle.images.length)">&#10095;</a>
+
+      </div>
+    </div>
+
+    <div class="details">
+      <table>
+        <tr>
+          <th>TITLE</th>
+          <td style="font-weight: 700;">
+            {{ vehicle.make }}: {{ vehicle.name }}
+          </td>
+        </tr>
+        <tr>
+          <th>VIN</th>
+          <td>{{ vehicle.vin }}</td>
+        </tr>
+        <tr>
+          <th>Make</th>
+          <td>{{ vehicle.make }}</td>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <td>{{ vehicle.name }}</td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td>{{ vehicle.description }}</td>
+        </tr>
+        <tr>
+          <th>Price</th>
+          <td>{{ vehicle.price }} €</td>
+        </tr>
+        <tr>
+          <th>Capacity</th>
+          <td>{{ vehicle.capacity }} cm<sup>3</sup></td>
+        </tr>
+        <tr>
+          <th>Power</th>
+          <td>{{ vehicle.power }} hp</td>
+        </tr>
+        <tr>
+          <th>Seller</th>
+          <td>{{ vehicle.userAccountId }}</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+}

@@ -10,11 +10,7 @@ namespace VehicleMarketplace.Controllers
     public class CarController : ControllerBase
     {
         private readonly CarService carService;
-
-        private readonly MakeService makeService;
         
-        private readonly UserAccountService userAccountService;
-
         public CarController(CarService carService) 
         {
             this.carService = carService;

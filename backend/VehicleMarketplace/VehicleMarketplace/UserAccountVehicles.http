@@ -1,0 +1,25 @@
+﻿@Address = https://localhost:7000
+
+###
+
+GET {{Address}}/api/users
+Accept: application/json
+
+###
+
+POST {{Address}}/api/users/login?email=john@gmail.com&password=john123
+Accept: application/json
+Content-Type: application/json
+
+{
+}
+
+###
+
+GET {{Address}}/api/users/status
+Accept: application/json
+
+###
+
+GET {{Address}}/api/me/vehicles/1
+Accept: application/json

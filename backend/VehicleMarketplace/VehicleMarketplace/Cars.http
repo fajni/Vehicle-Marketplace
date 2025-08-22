@@ -20,14 +20,17 @@ Accept: application/json
 
 ###
 
-###
-
 GET {{Address}}/api/cars
 Accept: application/json
 
 ###
 
 GET {{Address}}/api/cars/2FODM82633A000019
+Accept: application/json
+
+###
+
+GET {{Address}}/api/cars/users/1
 Accept: application/json
 
 ###

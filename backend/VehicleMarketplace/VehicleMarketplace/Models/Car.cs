@@ -1,5 +1,4 @@
-﻿using VehicleMarketplace.Models;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VehicleMarketplace.Models
 {
@@ -8,6 +7,7 @@ namespace VehicleMarketplace.Models
     {
         // ...
 
+        public List<Image>? Images { get; set; }
 
         // Foreign Key:
 

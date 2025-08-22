@@ -5,6 +5,7 @@ import { Make } from '../../models/Make';
 import { forkJoin, map, switchMap } from 'rxjs';
 import { MakeService } from '../makes/make.service';
 import { RouterLink } from '@angular/router';
+import { ImageService } from '../images/image.service';
 
 @Component({
   selector: 'app-motorcycles',
@@ -16,6 +17,7 @@ export class Motorcycles implements OnInit{
 
   private motorcycleService = inject(MotorcycleService);
   private makeService = inject(MakeService);
+  private imageService = inject(ImageService);
   private destroyRef = inject(DestroyRef);
 
   public motorcycles: IVehicleDTO[] = [];
@@ -26,21 +28,27 @@ export class Motorcycles implements OnInit{
   public ngOnInit(): void {
     
     const subscription = this.motorcycleService.getMotorcycles().pipe(
-      switchMap(motorcycles => {
-        // create array Observable for every motorcycle.makeId
-        const makeRequests = motorcycles.map(motorcycle => 
-          this.makeService.getMakeById(motorcycle.makeId).pipe(
-            map(make => ({ ...motorcycle, make: make.makeName }))
-          )
-        );
-    
-        // start all requests parallel
-        return forkJoin(makeRequests);
-        })
+      switchMap(motorcycles => this.makeService.getMakes().pipe(
+        map(makes => ({motorcycles, makes}))
+      )),
+      switchMap(motorcycles => this.imageService.getAllImages().pipe(
+        map(images => ({...motorcycles, images}))
+      ))
       ).subscribe({
-        next: (motorcycleWithMakes) => { 
+        next: (fullResponse) => { 
 
-          this.motorcycles = motorcycleWithMakes;
+          for(let i = 0; i < fullResponse.motorcycles.length; i++) {
+
+            const motorcycle = fullResponse.motorcycles[i];
+
+            const make = fullResponse.makes.find(m => m.id === motorcycle.makeId);
+            if(make)
+              motorcycle.make = make.makeName;
+
+            motorcycle.images = fullResponse.images.filter(img => img.motorcycleVin === motorcycle.vin);
+
+            this.motorcycles.push(motorcycle);
+          }
 
           switch(this.sort) {
           

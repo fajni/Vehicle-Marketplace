@@ -56,6 +56,47 @@ h1 {
   background-color: transparent;
 }
 
+/* SLIDER */
+
+.slideshow-container {
+  position: relative;
+  max-width: 600px;
+}
+
+.mySlide {
+  display: none;
+}
+
+.mySlide.active {
+  display: block;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  background-color: rgb(0, 173, 181, 0.3);
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.1);
+}
+
 @media (max-width: 768px) {
   .motorcycle-container {
     flex-direction: column;

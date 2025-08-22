@@ -79,6 +79,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "VehicleMarketplace.Controllers.ImageController",
+    "Method": "GetAllImages",
+    "RelativePath": "api/images",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.ImageController",
+    "Method": "GetAllCarsImages",
+    "RelativePath": "api/images/cars/{vin}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vin",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.ImageController",
+    "Method": "GetAllMotorcyclesImages",
+    "RelativePath": "api/images/motorcycles/{vin}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vin",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "VehicleMarketplace.Controllers.MakeController",
     "Method": "GetAllMakes",
     "RelativePath": "api/makes",
@@ -152,6 +194,54 @@
       {
         "Name": "updatedMake",
         "Type": "VehicleMarketplace.Models.Make",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.UserAccountVehicles",
+    "Method": "GetUserAccountCars",
+    "RelativePath": "api/me/cars/{userAccountId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userAccountId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.UserAccountVehicles",
+    "Method": "GetUserAccountMotorcycles",
+    "RelativePath": "api/me/motorcycles/{userAccountId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userAccountId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.UserAccountVehicles",
+    "Method": "GetUserAccountVehicles",
+    "RelativePath": "api/me/vehicles/{userAccountId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userAccountId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

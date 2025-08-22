@@ -22,4 +22,9 @@ export class CarService {
         return this.httpClient.get<IVehicleDTO>(`${this.url}/${vin}`);
     }
 
+    public getUserCarsByUserId(userId: number): Observable<IVehicleDTO[]> {
+
+        return this.httpClient.get<IVehicleDTO[]>(`${this.url}/users/${userId}`, { withCredentials: true })
+    }
+
 }
