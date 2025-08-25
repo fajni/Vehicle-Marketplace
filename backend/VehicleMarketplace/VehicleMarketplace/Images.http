@@ -7,7 +7,7 @@ Accept: application/json
 
 ###
 
-GET {{Address}}/api/images/cacrs/1HGCM82633A000001
+GET {{Address}}/api/images/cars/1HGCM82633A000001
 Accept: application/json
 
 ###
@@ -27,9 +27,17 @@ Accept: application/json
 
 ###
 
-POST {{Address}}/api/users/login?email=john@gmail.com&password=john123
+POST {{Address}}/api/users/login?email=fajni@gmail.com&password=fajni123
 Accept: application/json
 Content-Type: application/json
 
 ###
 
+POST {{Address}}/api/images/add
+Accept: application/json
+Content-Type: application/json
+
+{
+    "src": "https://www.panorica.com/sites/default/files/second-image-gallery/Dacia-Sandero-2022.jpg",
+    "carVin": "2DACM82633A000013"
+}

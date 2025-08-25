@@ -26,4 +26,9 @@ export class ImageService {
         return this.httpClient.get<Image[]>(`${this.url}/motorcycles/${vin}`);
     }
 
+    public addImage(image: Image) {
+
+        return this.httpClient.post<string>(`${this.url}/add`, image, {withCredentials: true});
+    }
+
 }

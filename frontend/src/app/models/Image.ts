@@ -1,8 +1,8 @@
 export interface Image {
 
-    imageId: number;
+    imageId?: number;
     src: string;
-    carVin: string;
-    motorcycleVin: string;
+    carVin?: string;
+    motorcycleVin?: string;
 
 }

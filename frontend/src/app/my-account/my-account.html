@@ -27,7 +27,7 @@
                 <input type="text" value="{{user?.lastname}}" formControlName="lastname"/>
                 <br/>
 
-                <label for="role"><b>Role:</b></label><br/>
+                <label for="role">Role:</label><br/>
                 <select id="role" formControlName="role">
                     @for(role of roles; track role.value) {
                         <option value="{{role.value}}">{{role.label}}</option>
@@ -47,10 +47,9 @@
             </div>
 
         </form>
-    </div>
-
-    <div class="details">
-        <p><button (click)="deleteUserAccount(user!.id)" class="delete">DELETE</button></p>
+        <div class="details">
+            <p><button (click)="deleteUserAccount(user!.id)" class="delete">DELETE</button></p>
+        </div>
     </div>
 
 }

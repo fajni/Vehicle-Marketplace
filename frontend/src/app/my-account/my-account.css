@@ -1,78 +1,110 @@
-.message {
-  font-size: xx-large;
-  font-weight: 800;
+/* Container */
+.information {
+  max-width: 600px;
+  margin: 0px auto;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: rgb(0, 173, 181, 0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: system-ui, sans-serif;
+  color: #1f2937;
 }
 
-.info {
-  margin: 50px;
-}
-
+/* Avatar */
 .image {
-  float: left;
-	margin: 2.5%;
-	width: auto;
-	height: 30%;
-	border: 1px solid gray;
-	border-radius: 50px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  border: 2px solid #e5e7eb;
 }
 
+/* Details form */
 .details {
-  float: left;
-	margin: auto;
-	text-transform: uppercase;
-	font-size: 15px;
-  color: white;
-	width: 60%;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-  font-weight: 600;
+  font-weight: 800;
+  font-size: medium;
+  color: white;
 }
 
 input, select {
-	background-color: rgb(0, 173, 181, 0.5);
-	width: 100%;
-	line-height: 2.0;
-	border: 0px solid black;
-	color: #176655;
-	font-size: 15px;
-  color: white;
-  margin-bottom: 20px;
-  padding-inline: 10px;
-  padding-block: 5px;
-}
-
-button {
-  color: white;
-}
-
-.update {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: medium;
   width: 100%;
-  font-size: large;
-  background-color: rgb(4, 170, 109, 0.7);
-  border: 0;
-  border-radius: 10px;
-  padding: 5px;
-  box-shadow: 1px 1px 1px 1px black;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.3);
+}
+
+/* Submit button */
+.update {
+  background-color: rgba(4, 170, 109, 0.7);
+  color: #fff;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 12px;
+  transition: 0.2s ease, transform 0.1s ease;
 }
 
 .update:hover {
   background-color: rgb(4, 170, 109);
-  cursor: pointer;
 }
 
 .delete {
+  background-color: rgba(244, 67, 54, 0.7);
+  color: #fff;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
   width: 100%;
-  margin-top: 20px;
-  font-size: large;
-  background-color: rgb(244, 67, 54, 0.7);
-  border: 0;
-  border-radius: 10px;
-  padding: 5px;
-  box-shadow: 1px 1px 1px 1px black;
+  margin-top: 12px;
+  transition: 0.2s ease, transform 0.1s ease;
 }
 
 .delete:hover {
   background-color: rgb(244, 67, 54);
-  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .information {
+    padding: 16px;
+  }
+
+  .image {
+    width: 90px;
+    height: 90px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  input, select {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .update {
+    font-size: 14px;
+    padding: 10px;
+  }
 }

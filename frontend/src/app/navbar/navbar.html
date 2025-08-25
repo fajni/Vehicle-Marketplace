@@ -1,35 +1,35 @@
 <ul class="topnav">
   
-  <li><a routerLink="">Home</a></li>
-  <li><a routerLink="/about">About</a></li>
+  <li><a routerLink="">HOME</a></li>
+  <li><a routerLink="/about">ABOUT</a></li>
 
   <li class="dropdown">
-    <a routerLink="/shop" class="dropbtn">Shop</a>
+    <a routerLink="/shop" class="dropbtn">SHOP</a>
     <div class="dropdown-content">
-      <a (click)="showCars()">Cars</a>
-      <a (click)="showMotorcycles()">Motorcycles</a>
+      <a (click)="showCars()">CARS</a>
+      <a (click)="showMotorcycles()">MOTORCYCLES</a>
     </div>
   </li>
 
   @if(!userLoggedIn) {
-    <li class="right"><a routerLink="/login">Login</a></li>
-    <li class="right"><a routerLink="/registration">Register</a></li>
+    <li class="right"><a routerLink="/login">LOGIN</a></li>
+    <li class="right"><a routerLink="/registration">REGISTER</a></li>
   }
 
   @if(userLoggedIn) {
     <li class="dropdown">
-      <a href="" class="dropbtn">Sell</a>
+      <a class="dropbtn" style="cursor: default;" routerLink="/sell">SELL</a>
       <div class="dropdown-content">
-        <a href="">Car</a>
-        <a href="">Motorcycle</a>
+        <a routerLink="/sell/car">CAR</a>
+        <a routerLink="/sell/motorcycle">MOTORCYCLE</a>
       </div>
     </li>
-    <li class="right"><a (click)="logout()" href="">Log out</a></li>
+    <li class="right"><a (click)="logout()" href="">LOG OUT</a></li>
 
     <li class="dropdown right">
-      <a routerLink="/account" class="dropbtn">My Account</a>
+      <a routerLink="/account" class="dropbtn">MY ACCOUNT</a>
       <div class="dropdown-content">
-        <a routerLink="/garage">My Garage</a>
+        <a routerLink="/garage">MY GARAGE</a>
       </div>
     </li>
   }

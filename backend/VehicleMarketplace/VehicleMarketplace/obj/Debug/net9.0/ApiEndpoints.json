@@ -90,6 +90,22 @@
   },
   {
     "ContainingType": "VehicleMarketplace.Controllers.ImageController",
+    "Method": "AddImage",
+    "RelativePath": "api/images/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newImage",
+        "Type": "VehicleMarketplace.Models.Image",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleMarketplace.Controllers.ImageController",
     "Method": "GetAllCarsImages",
     "RelativePath": "api/images/cars/{vin}",
     "HttpMethod": "GET",

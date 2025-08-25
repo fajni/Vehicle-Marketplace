@@ -1,0 +1,23 @@
+footer {
+    color: white;
+    margin-top: 80px;
+    border-top: 1px solid gray;
+    text-align: center;
+    padding: 3px;
+    background-color: rgba(51, 57, 66, 0.5);
+    color: white;
+}
+
+p {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+a {
+    text-decoration: underline;
+    color: white;
+}
+
+a:hover {
+    color: rgb(0, 173, 181, 1);
+}

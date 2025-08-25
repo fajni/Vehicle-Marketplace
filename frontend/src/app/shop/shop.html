@@ -1,6 +1,23 @@
 <div class="w3-container">
 
-  <h1>List of available vehicles:</h1>
+  <h1 style="text-align: center; margin: 40px auto;">
+    Shop smart, shop easy, shop with us - where vehicles meet their next owner
+  </h1>
+
+  <p>
+    <b>Shopping made simple and convenient.</b><br/>
+    
+    Our web app gives you access to a wide range of vehicles, 
+    from everyday essentials to premium, all in one place. <br/>
+    
+    With an easy-to-navigate interface, and secure checkout, 
+    buying what you need has never been easier. 
+    Detailed vehicles descriptions, and high-quality images, 
+    help you make the right choice every time. 
+    Whether you're browsing for yourself or gifting someone special, 
+    our shop ensures a smooth, reliable, and enjoyable shopping experience. <br/>
+    <b>Have a nice shop and drive away with the deal you deserve.</b>
+  </p>
 
   <form>
 
@@ -41,10 +58,12 @@
   @for(select of selected; track select) {
 
     @if(select == 'Cars'){
-        <app-cars [sort]="sort" />
+      <h1>List of available cars:</h1>
+      <app-cars [sort]="sort" />
     }
     @else if(select == 'Motorcycles'){
-        <app-motorcycles [sort]="sort" />
+      <h1>List of available motorcycles:</h1>
+      <app-motorcycles [sort]="sort" />
     }
   }
 

@@ -10,6 +10,9 @@ import { Motorcycles } from './shop/motorcycles/motorcycles';
 import { Car } from './shop/cars/car/car';
 import { Motorcycle } from './shop/motorcycles/motorcycle/motorcycle';
 import { MyGarage } from './my-garage/my-garage';
+import { SellCar } from './sell/sell-car/sell-car';
+import { SellMotorcycle } from './sell/sell-motorcycle/sell-motorcycle';
+import { Sell } from './sell/sell';
 
 export const routes: Routes = [
     {
@@ -52,6 +55,18 @@ export const routes: Routes = [
     {
         path: 'motors',
         redirectTo: 'motorcycles'
+    },
+    {
+        path: 'sell',
+        component: Sell
+    },
+    {
+        path: 'sell/car',
+        component: SellCar
+    },
+    {
+        path: 'sell/motorcycle',
+        component: SellMotorcycle
     },
     {
         path: 'login',

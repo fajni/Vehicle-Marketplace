@@ -49,6 +49,7 @@ SELECT * FROM vehicle_marketplace.cars;
 DESCRIBE vehicle_marketplace.cars;
 TRUNCATE TABLE vehicle_marketplace.cars;
 DELETE FROM vehicle_marketplace.cars WHERE user_account_id BETWEEN 0 AND 100;
+DELETE FROM vehicle_marketplace.cars WHERE vin='1HGCM82633A004352';
 INSERT INTO vehicle_marketplace.cars VALUES
 	('1HGCM82633A000001', 1, '320d', 'Diesel sports limousine', 30000, 1995, 190, 5),
 	('1HGCM82633A000002', 2, 'A4', 'Premium sedan', 25000, 2000, 195, 6),
@@ -66,6 +67,7 @@ INSERT INTO vehicle_marketplace.cars VALUES
 SELECT * FROM vehicle_marketplace.motorcycles;
 DESCRIBE vehicle_marketplace.motorcycles;
 DELETE FROM vehicle_marketplace.motorcycles WHERE user_account_id BETWEEN 0 AND 100;
+DELETE FROM vehicle_marketplace.motorcycles WHERE vin='1HGCM82633A004352';
 TRUNCATE vehicle_marketplace.motorcycles;
 INSERT INTO vehicle_marketplace.motorcycles VALUES
 	('3HDMC82633M000101', 11, 'Street Glide', 'V-Twin motor', 27000, 1868, 89, 9),
@@ -82,6 +84,7 @@ SELECT * FROM vehicle_marketplace.images;
 DESCRIBE vehicle_marketplace.images;
 TRUNCATE vehicle_marketplace.images;
 DELETE FROM vehicle_marketplace.images WHERE image_id BETWEEN 0 AND 100;
+DELETE FROM vehicle_marketplace.images WHERE image_car_vin = '1HGCM82633A004352';
 
 UPDATE vehicle_marketplace.images SET image_path='https://rynocars.com/wp-content/uploads/2023/10/2020-mercedes-benz-c-class-c200-1110x577.jpeg'
 	WHERE image_id = 6;

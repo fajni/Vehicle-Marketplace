@@ -4,4 +4,6 @@ export interface ITestAuthorization {
     userEmail?: string;
     firstname?: string;
     lastname?: string;
+    
+    userAccountId?: string;
 }

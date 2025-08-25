@@ -32,7 +32,7 @@ export class LoginService {
     }
 
 
-    public testAuthorization() {
+    public testAuthorization(): Observable<ITestAuthorization> {
 
         return this.httpClient.get<ITestAuthorization>(`${this.url}/users/status`, { withCredentials: true });
     }

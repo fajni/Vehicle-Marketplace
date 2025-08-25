@@ -1,16 +1,16 @@
 h1{
-    margin: 2% 20%;
-    padding: 0px 20px;
-    font-size: x-large;
+  margin: 2% 20%;
+  padding: 0px 20px;
+  font-size: x-large;
 }
 
 form {
-    margin: 2% 20%;
-    border: 0px solid #684701;
+  margin: 2% 20%;
+  border: 0px solid #684701;
 }
 
 label, a, h1, p {
-    color: white;
+  color: white;
 }
 
 input[type=text], input[type=password], select {

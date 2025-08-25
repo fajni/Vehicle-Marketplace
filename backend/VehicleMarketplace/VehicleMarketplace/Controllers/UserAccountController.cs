@@ -141,7 +141,8 @@ namespace VehicleMarketplace.Controllers
                 new Claim("Firstname", user.Firstname),
                 new Claim("Lastname", user.Lastname),
                 new Claim(ClaimTypes.Role, user.Role),
-                new Claim(ClaimTypes.Name, user.Email)
+                new Claim(ClaimTypes.Name, user.Email),
+                new Claim("UserAccountId", user.Id.ToString())
             };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -193,7 +194,8 @@ namespace VehicleMarketplace.Controllers
                     message = "You're logged in!",
                     userEmail = User.Identity.Name, 
                     Firstname = User.FindFirst("Firstname")?.Value,
-                    Lastname = User.FindFirst("Lastname")?.Value
+                    Lastname = User.FindFirst("Lastname")?.Value,
+                    UserAccountId = User.FindFirst("UserAccountId")?.Value
                 });
             }
             else

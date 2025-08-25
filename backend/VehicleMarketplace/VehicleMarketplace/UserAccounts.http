@@ -60,7 +60,7 @@ Content-Type: application/json
 
 ###
 
-POST {{Address}}/api/users/login?email=john@gmail.com&password=john123
+POST {{Address}}/api/users/login?email=paige@gmail.com&password=paige123
 Accept: application/json
 Content-Type: application/json
 
@@ -69,7 +69,7 @@ Content-Type: application/json
 
 ###
 
-POST {{Address}}/api/users/login?email=veljko@gmail.com&password=veljko123
+POST {{Address}}/api/users/login?email=fajni@gmail.com&password=fajni123
 Accept: application/json
 Content-Type: application/json
 

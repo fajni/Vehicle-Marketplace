@@ -73,3 +73,91 @@ public ngOnInit(): void {
 
 }
 ```
+
+<hr/>
+
+PROBLEM (One-to-Many save): save parent entity then same child entity. (_Again subscription inside subscription_)
+
+<p align="center">
+    <img src="../images/database/one-to-many.png"/>
+</p>
+
+- Problem:
+
+```ts
+public saveCarAndImages() {
+
+    const subscriptionSellCar = this.sellCarService.addVehicle(car).subscribe({
+        
+        next: (savedCarResponse) => {
+
+            console.log("Car saved:", savedCarResponse);
+
+            for (let i = 0; i < extractedImages.length; i++) {
+
+                const image: Image = {
+                    carVin: car.vin,
+                    src: extractedImages[i].src
+                };
+
+                console.log("Adding image:", image);
+
+                const subscriptionAddImage = this.imageService.addImage(image).subscribe({
+                    next: (savedImageResponse) => { console.log("Image saved:", savedImageResponse); },
+                    error: (error) => { console.error("Error saving image:", error); }
+                });
+
+                this.destroyRef.onDestroy(() => subscriptionAddImage.unsubscribe());
+            }
+
+        },
+
+        error: (error) => {
+            console.error("Error saving car:", error);
+        }
+
+    });
+
+    this.destroyRef.onDestroy(() => subscriptionSellCar.unsubscribe());
+}
+```
+
+- Solution (_swithMap, forkJoin_):
+
+```ts
+public saveCarWithImages() {
+    
+    const subscription = this.sellCarService.addVehicle(car).pipe(
+      
+        /* 
+            after you save the car, switchMap starts ?
+            response in switchMap is the response from addVechile() 
+        */
+        switchMap((response) => {
+
+            // map images into Observable list of calls, every image is send as individual HTTP request
+            const imageRequests: Observable<string>[] = extractedImages.map(img => {
+                
+                const image: Image = {
+                    carVin: car.vin,
+                    src: img.src
+                };
+
+                // return value for Observable list
+                return this.imageService.addImage(image);
+            });
+
+            // forkJoin starts all image requests parallel; emits 1 result
+            // if 1 image fails, whole forkJoin fails
+            return forkJoin(imageRequests);
+        })
+
+    )
+    .subscribe({
+      next: (response) => { console.log(response); },
+      error: (error) => { console.log(error); }
+    });
+
+    this.destroyRef.onDestroy(() => subscription.unsubscribe());
+}
+```

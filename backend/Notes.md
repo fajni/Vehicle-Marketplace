@@ -8,7 +8,9 @@
 
 <hr/>
 
-<img src= "../images/er.png"/>
+<p align="center">
+<img src="../images/database/er.png"/>
+</p>
 
 ## Database connection
 
@@ -148,7 +150,7 @@ app.UseAuthorization();
 | POST       | /api/users/login          | Login                           |/           |
 | GET        | /api/users/logout         | Logout                          |Admin, User |
 
-### Car
+### Cars
 
 |  Request   | Link                      | Description                     |Role        |
 |------------|---------------------------|---------------------------------|------------|
@@ -158,7 +160,7 @@ app.UseAuthorization();
 | DELETE     | /api/cars/delete/{vin}    | Delete car by vin               |Admin, User |
 | PUT        | /api/cars/update/{vin}    | Update car                      |Admin, User |
 
-### Motorcycle
+### Motorcycles
 
 /api/motorcycles = /api/motors
 
@@ -170,7 +172,7 @@ app.UseAuthorization();
 | DELETE     | /api/motorcycles/delete/{vin} | Delete motorcycles by vin       |Admin, User |
 | PUT        | /api/motorcycles/update/{vin} | Update motorcycles              |Admin, User |
 
-### Make
+### Makes
 
 |  Request   | Link                      | Description                     |Role        |
 |------------|---------------------------|---------------------------------|------------|
@@ -179,3 +181,6 @@ app.UseAuthorization();
 | POST       | /api/makes/add            | Add new make                    |Admin       |
 | DELETE     | /api/makes/delete/{id}    | Delete make by id               |Admin       |
 | PUT        | /api/makes/update/{id}    | Update make                     |Admin       |
+
+### Imagesc
+

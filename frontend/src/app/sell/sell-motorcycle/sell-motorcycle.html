@@ -1,0 +1,54 @@
+<h1>OFFER YOU MOTORCYCLE FOR SALE</h1>
+
+@if(message != "") {
+    <h1>{{message}}</h1>
+}
+
+<form [formGroup]="sellMotorcycleForm" (ngSubmit)="postNewMotorcycle()">
+
+    <div class="container">
+
+        <label for="vin"><b>VIN</b></label>
+        <input type="text" placeholder="Enter VIN" name="vin" required formControlName="vin" />
+
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter name" name="name" required formControlName="name" />
+        
+        <label for="description"><b>Short description</b></label>
+        <input type="text" placeholder="Enter short description" name="description" required formControlName="description" />
+
+        <label for="price"><b>Price</b></label>
+        <input type="number" placeholder="Enter price" name="price" required formControlName="price" />
+        
+        <label for="capacity"><b>Capacity</b></label>
+        <input type="number" placeholder="Enter capacity" name="capacity" required formControlName="capacity" />
+
+        <label for="power"><b>Power</b></label>
+        <input type="number" placeholder="Enter power" name="power" required formControlName="power" />
+
+        <label for="images"><b>Image links</b></label><br/>
+        <textarea 
+            type="text"
+            placeholder="Enter image links" 
+            name="images" 
+            required 
+            formControlName="images"> 
+        </textarea>
+
+        <label for="makeId"><b>Choose make</b></label>
+        <select id="makeId" formControlName="makeId">
+            @for(make of makes; track make) {
+                <option value="{{make.id}}">{{make.makeName}}</option>
+            }
+        </select>
+
+
+        <button type="submit">POST FOR SALE</button>
+
+    </div>
+
+    <div class="container">
+        <button type="button" class="cancelbtn" routerLink="/sell">Cancel</button>
+    </div>
+
+</form>

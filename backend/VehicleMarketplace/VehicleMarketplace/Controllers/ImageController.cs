@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using VehicleMarketplace.Models;
 using VehicleMarketplace.Services;
 
@@ -37,6 +38,27 @@ namespace VehicleMarketplace.Controllers
             List<Image> motorcycleImages = await imageService.GetImagesByMotorcycleVin(vin);
 
             return Ok(motorcycleImages);
+        }
+
+        [HttpPost, Route("add")]
+        [Authorize]
+        public async Task<IActionResult> AddImage([FromBody] Image newImage)
+        {
+            if(!ModelState.IsValid || newImage == null)
+            {
+                return BadRequest($"Image not valid! - {newImage}");
+            }
+
+            try
+            {
+                await imageService.SaveImage(newImage);
+
+                return Ok(new { message = $"{newImage.Id} added successfully!" });
+            }
+            catch (Exception ex) 
+            {
+                return StatusCode(500, "Internal server error: " + ex.Message);
+            }
         }
     }
 }
